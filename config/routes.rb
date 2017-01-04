@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :outings, only: [:index]
   get '/cart' => 'carts#index'
+  resources :carts, only: [:create]
 end

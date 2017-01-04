@@ -5,7 +5,7 @@
     <p><%= outing.description %></p>
     <img src="<%=outing.image_url%>" id="outing-photo">
     <p><%= outing.adjusted_cost %></p>
-    <%= link_to "Add to Cart", carts_path(outing_id: outing.id) %>
+    <%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST %>
   </div>
 <% end %>
 <%= link_to "View Cart", cart_path %>

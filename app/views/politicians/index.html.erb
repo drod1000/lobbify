@@ -1,0 +1,7 @@
+<h1>All Politicians</h1>
+<% @politicians.each do |politician| %>
+<h2><%=  politician.name %></h2>
+  <% politician.outings.each do |outing|%>
+    <%= outing.title %>
+  <% end %>
+<% end %>

@@ -12,10 +12,12 @@ RSpec.feature "User sees all politicians" do
 
     expect(page).to have_content(politician_1.name)
     expect(page).to have_content(politician_2.name)
-    expect(page).to have_content(outing_1.name)
-    expect(page).to have_content(outing_2.name)
-    expect(page).to have_content(outing_3.name)
-    expect(page).to have_content(outing_4.name)
+    expect(page).to have_content(outing_1.title)
+    expect(page).to have_content(outing_2.title)
+    expect(page).to have_content(outing_3.title)
+    expect(page).to have_content(outing_4.title)
+
+    save_and_open_page
 
   end
 end

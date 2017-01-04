@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Link to project specs : *[(https://http://backend.turing.io/module2/projects/little_shop)]
+ 
+Link to heroku : *[(https://lobbify.herokuapp.com)]
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[![Code Climate](https://codeclimate.com/github/drod1000/lobbify/badges/gpa.svg)](https://codeclimate.com/github/drod1000/lobbify)

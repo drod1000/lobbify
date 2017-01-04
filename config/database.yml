@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: lobbify_development
+  # nick had to add this line to make postgres function on his computer
+  host: localhost
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,7 @@ development:
 test:
   <<: *default
   database: lobbify_test
+  host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

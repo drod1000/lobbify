@@ -1,0 +1,11 @@
+<h1> all outings </h1>
+<% @outings.each do |outing| %> 
+  <div>
+    <p><%= outing.title %></p>
+    <p><%= outing.description %></p>
+    <img src="<%=outing.image_url%>" id="outing-photo">
+    <p><%= outing.adjusted_cost %></p>
+    <%= link_to "Add to Cart", carts_path(outing_id: outing.id) %>
+  </div>
+<% end %>
+<%= link_to "View Cart", cart_path %>

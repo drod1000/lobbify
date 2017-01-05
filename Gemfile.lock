@@ -241,7 +241,6 @@ DEPENDENCIES
   kaminari
   launchy
   listen (~> 3.0.5)
-  nokogiri
   pg (~> 0.18)
   pry
   puma (~> 3.0)

@@ -16,6 +16,5 @@ RSpec.feature "User sees all politicians" do
     expect(page).to have_content(outing_2.title)
     expect(page).to have_content(outing_3.title)
     expect(page).to have_content(outing_4.title)
-
   end
 end

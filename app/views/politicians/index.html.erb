@@ -1,7 +1,17 @@
-<h1>All Politicians</h1>
-<% @politicians.each do |politician| %>
-<h2><%=  politician.name %></h2>
-  <% politician.outings.each do |outing|%>
-    <%= outing.title %>
+<div class='container'>
+  <%= link_to "View Cart", cart_path %>
+  <% @politicians.each do |politician| %>
+  <div class='row'>
+  <h2><%=  politician.name %></h2>
+    <% politician.outings.each do |outing|%>
+      <div class='col-md-4' id='outing-index'>
+        <br>
+        <img id='outing-image' src='<%= outing.image_url %>'><br>
+      <p><%= outing.title %>-<%= outing.adjusted_cost %></p>
+      <p>with <%= outing.politician.name %></p></br>
+      <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm' %></p>
+      </div>
+    <% end %>
+  </div>
   <% end %>
-<% end %>
+</div>

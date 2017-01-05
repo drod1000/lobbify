@@ -24,13 +24,13 @@ RSpec.describe "visitor" do
       expect(page).to have_content(first.title)
       expect(page).to have_content(first.description)
       expect(page).to have_content(first.base_cost * politician.multiplier)
-      page.find('#outing-photo')['src'].should have_content(first.image_url)
+      expect(page.find('#outing-photo')['src']).to have_content(first.image_url)
     end
     within("tr:nth-of-type(3)") do
       expect(page).to have_content(second.title)
       expect(page).to have_content(second.description)
       expect(page).to have_content(second.base_cost * politician.multiplier)
-      page.find('#outing-photo')['src'].should have_content(second.image_url)
+      expect(page.find('#outing-photo')['src']).to have_content(second.image_url)
     end
     expect(page).to have_content("Total Price: $28.00")
   end

@@ -1,6 +1,7 @@
 class PoliticiansController < ApplicationController
-  
+
   def show
-    @politician = Politician.find_by(name: params[:name])
+    @name = params[:name].gsub("_"," ")
+    @politician = Politician.find_by(name: @name)
   end
 end

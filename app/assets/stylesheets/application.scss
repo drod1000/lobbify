@@ -1,2 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#outing-index {
+  border: 2px solid black;
+
+}
+#outing-index p{
+  text-align: center;
+}
+#outing-image{
+  height: 150px;
+  width: 175px;
+  border: 1px solid black;
+  border-radius: 10%;
+  display: block;
+  margin: auto;
+}

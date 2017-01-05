@@ -1,0 +1,12 @@
+<div class='container'>
+
+    <% @outings.each do |outing|%>
+      <div class='col-md-4' id='outing-index'>
+          <br>
+          <img id='outing-image' src='<%= outing.image_url %>'><br>
+        <p><%= outing.title %>  $<%= outing.base_cost %></p>
+        <p>with <%= outing.politician.name %></p><br>
+        <p><%= link_to "Add to Cart", "/outings", class:'btn btn-success btn-sm' %></p>
+      </div>
+    <% end %>
+</div>

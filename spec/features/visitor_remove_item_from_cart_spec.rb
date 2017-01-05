@@ -18,15 +18,12 @@ RSpec.describe "visitor" do
 
     visit cart_path
 
-    # save_and_open_page
-
     within("tr:nth-of-type(2)") do
       click_on("Remove")
     end
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("Successfully removed #{first.title} from your cart.")
-    save_and_open_page
-    expect(page).to have_link(carts_path(outing_id: first.id))
+    expect(page.find_link(first.title)[:href]).to eq(carts_path(outing_id: first.id))
   end
 end

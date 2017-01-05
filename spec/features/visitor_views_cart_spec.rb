@@ -9,11 +9,11 @@ RSpec.describe "visitor" do
     visit outings_path
       # page.expect have_content("Add To Cart")
     
-    within("div:nth-of-type(1)") do
+    within("#outing-index:nth-of-type(1)") do
       click_on("Add to Cart")
     end
     
-    within("div:nth-of-type(2)") do
+    within("#outing-index:nth-of-type(2)") do
       click_on("Add to Cart")
     end
 

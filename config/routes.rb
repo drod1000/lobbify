@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   resources :outings, only: [:index]
   get '/cart' => 'carts#index'
-  # post '/cart' => 'carts#remove_outing'
-  # post '/cart' => 'carts#destroy'
   resources :carts, only: [:create, :destroy]
-
+  get 'outings' => 'outings#index'
 end

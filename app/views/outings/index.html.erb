@@ -1,11 +1,12 @@
-<h1> all outings </h1>
-<% @outings.each do |outing| %> 
-  <div>
-    <p><%= outing.title %></p>
-    <p><%= outing.description %></p>
-    <img src="<%=outing.image_url%>" id="outing-photo">
-    <p><%= outing.adjusted_cost %></p>
-    <%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST %>
-  </div>
-<% end %>
-<%= link_to "View Cart", cart_path %>
+<div class='container'>
+  <%= link_to "View Cart", cart_path %>
+  <% @outings.each do |outing|%>
+    <div class='col-md-4' id='outing-index'>
+        <br>
+        <img id='outing-image' src='<%= outing.image_url %>'><br>
+      <p><%= outing.title %>-<%= outing.adjusted_cost %></p>
+      <p>with <%= outing.politician.name %></p><br>
+      <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm' %></p>
+    </div>
+  <% end %>
+</div>

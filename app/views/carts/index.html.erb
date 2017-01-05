@@ -7,6 +7,7 @@
     <th>Image</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>Action</th>
   </tr>
   <% @contents.each do |content|%>
     <tr>
@@ -15,6 +16,7 @@
       <td><img src="<%= content.first.image_url%>" id="outing-photo"></td>
       <td><%= content.first.adjusted_cost %></td>
       <td><%= content.last %></td>
+      <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete %></td>
     </tr>
   <% end %>
   <tr>

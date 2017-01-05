@@ -1,25 +1,27 @@
-<h1>Cart</h1>
+<div class='container'>
+  <h1>Cart</h1>
 
-<table>
-  <tr>
-    <th>Outing Title</th>
-    <th>Description</th>
-    <th>Image</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Action</th>
-  </tr>
-  <% @contents.each do |content|%>
+  <table class = "table">
     <tr>
-      <td><%= content.first.title %></td>
-      <td><%= content.first.description %></td>
-      <td><img src="<%= content.first.image_url%>" id="outing-photo"></td>
-      <td><%= content.first.adjusted_cost %></td>
-      <td><%= content.last %></td>
-      <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete %></td>
+      <th>Outing Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Action</th>
     </tr>
-  <% end %>
-  <tr>
-    <td colspan = "5">Total Price: <%= @cart_total %></td>
-  </tr>
-</table>
+    <% @contents.each do |content|%>
+      <tr>
+        <td><%= content.first.title %></td>
+        <td><%= content.first.description %></td>
+        <td><img src="<%= content.first.image_url %>" class="img-responsive" id="outing-photo"></td>
+        <td><%= content.first.adjusted_cost %></td>
+        <td><%= content.last %></td>
+        <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class = "text-center" colspan = "6"><h4>Total Price: <%= @cart_total %></h4></td>
+    </tr>
+  </table>
+</div>

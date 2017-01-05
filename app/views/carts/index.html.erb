@@ -16,7 +16,7 @@
         <td><%= content.first.description %></td>
         <td><img src="<%= content.first.image_url %>" class="img-responsive" id="outing-photo"></td>
         <td><%= content.first.adjusted_cost %></td>
-        <td><%= content.last %></td>
+        <td id="quantity"><%= content.last %></td>
         <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>

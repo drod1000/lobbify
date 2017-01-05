@@ -1,42 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+body {
+  padding-top: 60px;
+}
 
 #outing-index {
   border: 2px solid black;
@@ -56,4 +23,20 @@
 #picture{
  height: 50px;
  width: 75px;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.navbar>li {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

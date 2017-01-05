@@ -1,5 +1,4 @@
 <div class='container'>
-  <%= link_to "View Cart", cart_path %>
   <% @outings.each do |outing|%>
     <%= render partial: 'shared/outing', locals: {outing: outing} %>
   <% end %>

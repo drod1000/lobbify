@@ -26,6 +26,7 @@ RSpec.describe "visitor" do
 
     expect(current_path).to eq(cart_path)
     expect(page).to have_content("Successfully removed #{first.title} from your cart.")
-    # expect(page).to have_link(carts_path(outing_id: first.id))
+    save_and_open_page
+    expect(page).to have_link(carts_path(outing_id: first.id))
   end
 end

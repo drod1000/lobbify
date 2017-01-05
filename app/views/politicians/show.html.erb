@@ -1,0 +1,6 @@
+<div class='container'>
+  <h2><%=  @politician.name %></h2>
+    <% @politician.outings.each do |outing|%>
+      <%= render partial: 'shared/outing', locals: {outing: outing} %>
+    <% end %>
+</div>

@@ -1,0 +1,7 @@
+<div class='col-md-4' id='outing-index'>
+    <br>
+    <img id='outing-image' src='<%= outing.image_url %>'><br>
+  <p><%= outing.title %>-<%= outing.adjusted_cost %></p>
+  <p>with <%= outing.politician.name %></p><br>
+  <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm' %></p>
+</div>

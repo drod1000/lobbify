@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %> alert-dismissable" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <span class="sr-only">Message: </span><%= msg %>
+  </div>
+<% end %>

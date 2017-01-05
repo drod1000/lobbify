@@ -1,0 +1,25 @@
+<h1>Cart</h1>
+
+<table>
+  <tr>
+    <th>Outing Title</th>
+    <th>Description</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Action</th>
+  </tr>
+  <% @contents.each do |content|%>
+    <tr>
+      <td><%= content.first.title %></td>
+      <td><%= content.first.description %></td>
+      <td><img src="<%= content.first.image_url%>" id="outing-photo"></td>
+      <td><%= content.first.adjusted_cost %></td>
+      <td><%= content.last %></td>
+      <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan = "5">Total Price: <%= @cart_total %></td>
+  </tr>
+</table>

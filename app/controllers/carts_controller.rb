@@ -20,6 +20,24 @@ class CartsController < ApplicationController
     redirect_to outings_path
   end
 
+  def increment
+    outing = Outing.find(params[:outing_id])
+    @cart = Cart.new(session[:cart])
+    @cart.add_outing(outing.id)
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
+  def decrement
+    outing = Outing.find(params[:outing_id])
+    @cart = Cart.new(session[:cart])
+    @cart.sub_outing(outing.id)
+    session[:cart] = @cart.contents
+
+    redirect_to cart_path
+  end
+
   def destroy
     outing = Outing.find(params[:id])
     session[:cart].delete(outing.id.to_s)

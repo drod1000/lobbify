@@ -10,4 +10,8 @@ class Cart
     @contents[outing_id.to_s] += 1
   end
 
+  def sub_outing(outing_id)
+    @contents[outing_id.to_s] -= 1
+  end
+
 end

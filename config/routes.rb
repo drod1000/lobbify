@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources 'politicians', only: [:index]
   resources :outings, only: [:index]
   get '/cart' => 'carts#index'
+  post '/cart_increment' => 'carts#decrement', :as => 'decrement'
+  post '/cart_decrement' => 'carts#increment', :as => 'increment'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
 #   get 'outings' => 'outings#index'

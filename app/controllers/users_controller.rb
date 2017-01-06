@@ -9,6 +9,9 @@ class UsersController < ApplicationController
       flash[:success] = "Successfully created acount!"
       session[:user_id] = @user.id
       redirect_to dashboard_path
+    else
+      flash[:danger] = "Sorry, could not create account."
+      render :new
     end
   end
 

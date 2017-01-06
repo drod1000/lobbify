@@ -113,7 +113,7 @@ describe "Visitor visits the cart" do
       expect(current_path).to eq('/cart')
     end
 
-    xit "decrements from 1 to 0 and removes outing from cart" do
+    it "hides the decrement button at quantity of 1" do
       politician = create(:politician)
       outing_1, outing_2 = create_list(:outing, 2, politician: politician)
 
@@ -123,22 +123,11 @@ describe "Visitor visits the cart" do
         click_on 'Add to Cart'
       end
 
-      within '#outing-index:nth-of-type(2)' do
-        click_on 'Add to Cart'
-      end
-
       click_on 'View Cart'
 
       expect(current_path).to eq('/cart')
       expect(page).to have_content(outing_1.title)
-
-      within '#sub:nth-of-type(1)' do
-        click_on '-'
-      end
-
-      expect(page).to_not have_content(outing_1.title)
-      expect(page).to have_content(outing_2.title)
-      expect(current_path).to eq('/cart')
+      expect(page).to_not have_link('-')
     end
   end
 end

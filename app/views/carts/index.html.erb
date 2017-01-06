@@ -16,8 +16,11 @@
         <td><%= content.description %></td>
         <td><img src="<%= content.image_url %>" class="img-responsive" id="outing-photo"></td>
         <td><%= content.adjusted_cost_currency %></td>
-        <td id='quantity'><%= link_to "+", increment_path(outing_id: content.id),method: :POST, class:'btn btn-success btn-xs', id: 'add' %><%= content_qty %>
-        <%= link_to "-", decrement_path(outing_id: content.id), method: :POST, class:'btn btn-warning btn-xs', id: 'sub'%></td></td>
+        <td id='quantity'><%= link_to "+", increment_path(outing_id: content.id),method: :POST, class:'btn btn-success btn-xs', id: 'add' %>
+          <%= content_qty %>
+          <% if content_qty >= 2 %>
+            <%= link_to "-", decrement_path(outing_id: content.id), method: :POST, class:'btn btn-warning btn-xs'%></td></td>
+          <% end %>
         <td><%= link_to "Remove", "/carts/#{content.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>

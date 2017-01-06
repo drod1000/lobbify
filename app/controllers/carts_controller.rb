@@ -28,9 +28,6 @@ class CartsController < ApplicationController
     @cart = Cart.new(session[:cart])
     @cart.sub_outing(outing.id)
     session[:cart] = @cart.contents
-    if @cart.contents == 0
-
-    end
 
     redirect_to cart_path
   end

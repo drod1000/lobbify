@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   get '/cart' => 'carts#index'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
-#   get 'outings' => 'outings#index'
 end

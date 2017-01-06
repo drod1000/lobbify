@@ -1,7 +1,11 @@
 class PoliticiansController < ApplicationController
 
   def show
-    @name = path_cleaner(params[:name])
-    @politician = Politician.find_by(name: @name)
+    @politician = path_validator(params[:name])
+    if @politician.nil?
+      flash[:danger] = "Politician #{path_cleaner(params[:name])} does not exist"
+      redirect_to :root
+    end
   end
+
 end

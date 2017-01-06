@@ -1,7 +1,23 @@
 <div class='container'>
   <h2><%=  @politician.name %></h2>
   <div class='contianer'>
-    <img src="<%= @politician.image %>">
+    <div class='col-md-1'>
+      <img src="<%= @politician.image %>">
+    </div>
+    <div class='colmd-1'>
+      <li>Party:
+        <%= @politician.party %>
+      </li>
+      <li>Senator from:
+        <strong><%= @politician.state %></strong>
+      </li>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
   </div>
     <% @politician.outings.each do |outing|%>
       <%= render partial: 'shared/outing', locals: {outing: outing} %>

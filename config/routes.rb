@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources 'politicians', only: [:index]
   resources :outings, only: [:index]
   resources :users, only: [:new, :create]
+  get '/dashboard' => 'users#show'
   get '/cart' => 'carts#index'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]

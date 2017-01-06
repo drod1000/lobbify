@@ -1,10 +1,10 @@
 <div class='container'>
   <h2><%=  @politician.name %></h2>
-  <div class='contianer'>
+  <div class='row'>
     <div class='col-md-1'>
-      <img src="<%= @politician.image %>">
+      <img class='img-responsive' src="<%= @politician.image %>">
     </div>
-    <div class='colmd-1'>
+    <div class='col-md-11'>
       <li>Party:
         <%= @politician.party %>
       </li>
@@ -12,14 +12,10 @@
         <strong><%= @politician.state %></strong>
       </li>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
   </div>
+  <div class='row'>
     <% @politician.outings.each do |outing|%>
       <%= render partial: 'shared/outing', locals: {outing: outing} %>
     <% end %>
+  </div>
 </div>

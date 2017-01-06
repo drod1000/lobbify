@@ -19,6 +19,12 @@
           <li><%= link_to "View Cart", cart_path, class: "btn btn-default btn-sm" %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li>Logged in as <%= current_user.name%></li>
+            <li><%= link_to "Logout", logout_path, class: "btn btn-default btn-sm" %></li>
+          <% else %>
+            <li><%= link_to "Login", login_path, class: "btn btn-default btn-sm" %></li>
+          <% end %>
           <li><%= link_to "Outings", outings_path, class: "btn btn-default btn-sm" %></li>
         </ul>
       </div>

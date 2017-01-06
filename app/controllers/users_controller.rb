@@ -7,11 +7,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Successfully created acount!"
+      session[:user_id] = @user.id
       redirect_to dashboard_path
     end
   end
 
   def show
+    @user = User.find(session[:user_id])
   end
 
   private

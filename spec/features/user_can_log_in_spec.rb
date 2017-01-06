@@ -16,8 +16,7 @@ RSpec.feature "User can log in" do
       click_on "Login"
     end
 
-    expect(current_path).to eq (dashboard_path)
-    expect(page).to have_content("Successfully created acount!")
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as Daniel")
     expect(page).to have_content("Name: Daniel")
     expect(page).to have_content("Email: d@d.com")

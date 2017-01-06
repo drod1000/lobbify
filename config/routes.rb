@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/dashboard' => 'users#show'
   get '/cart' => 'carts#index'
+  post '/cart_increment' => 'carts#increment', :as => 'increment'
+  post '/cart_decrement' => 'carts#decrement', :as => 'decrement'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
 end

@@ -1,7 +1,7 @@
 class PoliticiansController < ApplicationController
 
   def show
-    @name = params[:name].gsub("_"," ")
+    @name = path_cleaner(params[:name])
     @politician = Politician.find_by(name: @name)
   end
 end

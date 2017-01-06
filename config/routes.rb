@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   post '/cart_decrement' => 'carts#increment', :as => 'increment'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
-#   get 'outings' => 'outings#index'
 end

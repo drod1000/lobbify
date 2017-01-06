@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe Outing do
+  before(:each) do
+    @politician = Politician.create(name: 'Dan', party: 'de', multiplier: 2, image: 't')
+  end
+
   describe 'validations' do
     context 'invalid attributes' do
       it 'is invalid without a title' do
@@ -42,6 +46,23 @@ describe Outing do
       outing = Outing.create(title: 'th', description: 't', image_url: 'b', base_cost: 4)
 
       expect(outing).to respond_to(:politician)
+    end
+  end
+
+  describe 'methods' do
+    describe 'adjusted cost' do
+      it 'returns base_cost multiplied by politician multiplier' do
+        outing = Outing.create(title: 'th', description: 't', image_url: 'b', base_cost: 4, politician: @politician)
+
+        expect(outing.adjusted_cost).to eq(8)
+      end
+    end
+    describe 'adjusted cost as currency' do
+      it 'returns as currency the base_cost multiplied by politician multiplier' do
+        outing = Outing.create(title: 'th', description: 't', image_url: 'b', base_cost: 4, politician: @politician)
+
+        expect(outing.adjusted_cost_currency).to eq("$8.00")
+      end
     end
   end
 end

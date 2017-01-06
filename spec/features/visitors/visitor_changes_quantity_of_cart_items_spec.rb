@@ -71,7 +71,7 @@ describe "Visitor visits the cart" do
       end
 
       within '#quantity' do
-        click_on 'Add'
+        click_on '+'
       end
 
       within '#quantity:nth-of-type(1)' do
@@ -104,7 +104,7 @@ describe "Visitor visits the cart" do
       end
 
       within '#quantity' do
-        click_on 'Subtract'
+        click_on '-'
       end
 
       within '#quantity:nth-of-type(1)' do
@@ -133,7 +133,7 @@ describe "Visitor visits the cart" do
       expect(page).to have_content(outing_1.title)
 
       within '#sub:nth-of-type(1)' do
-        click_on 'Subtract'
+        click_on '-'
       end
 
       expect(page).to_not have_content(outing_1.title)

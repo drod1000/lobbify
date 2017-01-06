@@ -18,8 +18,8 @@
         <td><%= content.first.adjusted_cost %></td>
         <td id="quantity">
           <%= content.last %>
-          <%= link_to "Add", increment_path(outing_id: content.first.id),method: :POST, class:'btn btn-success btn-xs' %>
-          <%= link_to "Subtract", decrement_path(outing_id: content.first.id), method: :POST, class:'btn btn-warning btn-xs'%></td>
+          <%= link_to "Add", increment_path(outing_id: content.first.id),method: :POST, class:'btn btn-success btn-xs', id: 'add' %>
+          <%= link_to "Subtract", decrement_path(outing_id: content.first.id), method: :POST, class:'btn btn-warning btn-xs', id: 'sub'%></td>
         <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>

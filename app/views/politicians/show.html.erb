@@ -1,5 +1,8 @@
 <div class='container'>
   <h2><%=  @politician.name %></h2>
+  <div class='contianer'>
+    <img src="<%= @politician.image %>">
+  </div>
     <% @politician.outings.each do |outing|%>
       <%= render partial: 'shared/outing', locals: {outing: outing} %>
     <% end %>

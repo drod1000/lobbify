@@ -10,14 +10,14 @@
       <th>Quantity</th>
       <th>Action</th>
     </tr>
-    <% @contents.each do |content|%>
+    <% @contents.each do |content, content_qty|%>
       <tr>
-        <td><%= content.first.title %></td>
-        <td><%= content.first.description %></td>
-        <td><img src="<%= content.first.image_url %>" class="img-responsive" id="outing-photo"></td>
-        <td><%= content.first.adjusted_cost %></td>
-        <td><%= content.last %></td>
-        <td><%= link_to "Remove", "/carts/#{content.first.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
+        <td><%= content.title %></td>
+        <td><%= content.description %></td>
+        <td><img src="<%= content.image_url %>" class="img-responsive" id="outing-photo"></td>
+        <td><%= content.adjusted_cost_currency %></td>
+        <td><%= content_qty %></td>
+        <td><%= link_to "Remove", "/carts/#{content.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>
     <tr>

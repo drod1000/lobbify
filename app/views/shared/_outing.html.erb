@@ -1,7 +1,8 @@
 <div class='col-md-4' id='outing-index'>
-    <br>
-    <img id='outing-image' src='<%= outing.image_url %>'><br>
-  <p><%= outing.title %>- $<%= outing.adjusted_cost %>.00</p>
-  <p>with <%= outing.politician.name %></p><br>
+  <br>
+  <img id='outing-image' src='<%= outing.image_url %>'><br>
+  <p><%= outing.title %></p>
+  <p><strong><%= outing.adjusted_cost_currency %></strong></p>
+  <p>with <%= link_to outing.politician.name, "/#{path_creator(outing.politician.name)}" %></p><br>
   <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm' %></p>
 </div>

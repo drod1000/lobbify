@@ -9,7 +9,8 @@ RSpec.feature "User can create a new account" do
     fill_in "user[password]", with: "password"
     click_on "Create User"
 
-    expect(current_path).to eq ("/dashboard")
+    expect(current_path).to eq (dashboard_path)
+    expect(page).to have_content("Successfully created acount!")
     expect(page).to have_content("Logged in as Daniel")
     expect(page).to have_content("Name: Daniel")
     expect(page).to have_content("Email: d@d.com")
@@ -22,7 +23,13 @@ RSpec.feature "User can create a new account" do
 
     click_on "Create Account"
 
+    fill_in "user[name]", with: "Daniel"
+    fill_in "user[email]", with: "d@d.com"
+    fill_in "user[password]", with: "password"
+    click_on "Create User"
+
     expect(current_path).to eq ("/dashboard")
+    expect(page).to have_content("Successfully created acount!")
     expect(page).to have_content("Logged in as Daniel")
     expect(page).to have_content("Name: Daniel")
     expect(page).to have_content("Email: d@d.com")

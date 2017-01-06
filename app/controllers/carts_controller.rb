@@ -19,7 +19,6 @@ class CartsController < ApplicationController
     session[:cart].delete(outing.id.to_s)
     link = "#{view_context.link_to(outing.title, carts_path(outing_id: outing.id), method: :POST)}"
     flash[:success] = "Successfully removed #{link} from your cart."
-    # flash[:success] = "Successfully removed #{outing.title} from your cart.".html_safe
     redirect_to cart_path
   end
 end

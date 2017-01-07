@@ -35,7 +35,7 @@ FactoryGirl.define do
 
   factory :order_item do
     order
-    item
+    outing
     quantity 1
   end
 end

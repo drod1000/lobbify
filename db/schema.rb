@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107003835) do
+ActiveRecord::Schema.define(version: 20170107025321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "order_id"
+    t.integer "outing_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
+    t.index ["outing_id"], name: "index_order_items_on_outing_id", using: :btree
+  end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "status",     default: 0
@@ -53,6 +61,8 @@ ActiveRecord::Schema.define(version: 20170107003835) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "outings"
   add_foreign_key "orders", "users"
   add_foreign_key "outings", "politicians"
 end

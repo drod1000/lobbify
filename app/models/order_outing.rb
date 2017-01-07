@@ -4,7 +4,7 @@ class OrderOuting < ApplicationRecord
   belongs_to :outing
 
   def subtotal
-    self.outing.adjusted_cost * self.quantity
+    outing.adjusted_cost * quantity
   end
 
   def subtotal_currency

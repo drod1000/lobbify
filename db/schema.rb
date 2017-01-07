@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(version: 20170107025321) do
   enable_extension "plpgsql"
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "order_id"
-    t.integer "outing_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.integer  "outing_id"
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
     t.index ["outing_id"], name: "index_order_items_on_outing_id", using: :btree
   end

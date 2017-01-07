@@ -1,0 +1,15 @@
+<div class="container politician_outing">
+  <img src="<%= @politician.image %>">
+  <h1><%= @politician.name %></h1>
+  <div class="container">
+  Outing: <%= @outing.title %>
+  <br>
+  Description: <%= @outing.description %>
+  <br>
+  <% if @outing.retired? %>
+    <%= "Outing Retired" %>
+  <% else %>
+    <%= link_to "Add to Cart", carts_path(outing_id: @outing), method: :POST, class: "btn btn-success btn-sm" %>
+  <% end %>
+  </div>
+</div>

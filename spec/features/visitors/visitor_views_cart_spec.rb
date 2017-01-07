@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "visitor" do
-  scenario "adds item to cart and views cart" do 
+RSpec.describe "from outings index visitor" do
+  scenario "adds active item to cart and views cart" do 
     politician = Politician.create(name: 'Dan', party: 'de', multiplier: 2, image: 't')
     first = Outing.create(title: 'th', description: 't', image_url: '/images/golf.jpg', base_cost: 4, politician: politician)
     second = Outing.create(title: 'ac', description: 'dc', image_url: '/images/dinner.jpg', base_cost: 10, politician: politician)
 
     visit outings_path
-      # page.expect have_content("Add To Cart")
     
     within("#outing-index:nth-of-type(1)") do
       click_on("Add to Cart")
@@ -33,5 +32,15 @@ RSpec.describe "visitor" do
       expect(page.find('#outing-photo')['src']).to have_content(second.image_url)
     end
     expect(page).to have_content("Total Price: $28.00")
+  end
+
+  scenario "cannot add retired item to cart" do
+    politician = Politician.create(name: 'Dan', party: 'de', multiplier: 2, image: 't')
+    outing = politician.outings.create(title: 'th', description: 't', image_url: '/images/golf.jpg', base_cost: 4, status: 1)
+ 
+    visit outings_path
+
+    expect(page).to have_content("Outing Retired")
+    expect(page).not_to have_content("Add to Cart")
   end
 end

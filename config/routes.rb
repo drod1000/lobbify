@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get '/cart' => 'carts#index'
   post '/cart_increment' => 'carts#increment', :as => 'increment'
   post '/cart_decrement' => 'carts#decrement', :as => 'decrement'
-  get '/orders' => 'orders#index'
+  # get '/orders' => 'orders#index'
+  resources :orders, only: [:index, :show]
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
 end

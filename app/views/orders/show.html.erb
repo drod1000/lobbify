@@ -1,0 +1,24 @@
+<div class='container'>
+  <h1>Order no. <%= @order.id %> details</h1>
+  <h3>Created at: <%= @order.created_at %></h3>
+  <h3>Current status: <span class="label label-default"><%= @order.status %></span></h3>
+
+  <table class = "table">
+    <tr>
+      <th>Outing</th>
+      <th>Quantity</th>
+      <th>Sub Total</th>
+    </tr>
+    <% @order.order_items.each do |order_item|%>
+      <tr>
+        <td><%= link_to order_item.outing.title, outing_path(order_item.outing) %></td>
+      </tr>
+      <tr>
+        <td><%= order_item.quantity %></td>
+      </tr>
+      <tr>
+        <td><%= order_item.subtotal %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

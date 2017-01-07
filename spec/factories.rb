@@ -33,7 +33,7 @@ FactoryGirl.define do
     user
   end
 
-  factory :order_item do
+  factory :order_outing do
     order
     outing
     quantity 1

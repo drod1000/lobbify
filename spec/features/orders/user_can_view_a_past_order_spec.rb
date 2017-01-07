@@ -29,11 +29,11 @@ RSpec.describe 'user views a past order' do
 
       expect(current_path).to eq(order_path(@order1))
       expect(page).to have_content(@outing1.title)
-      expect(page).to have_content(@order_outing1.subtotal)
+      expect(page).to have_content(@order_outing1.subtotal_currency)
       expect(page).to have_content(@outing2.title)
-      expect(page).to have_content(@order_outing2.subtotal)
+      expect(page).to have_content(@order_outing2.subtotal_currency)
       expect(page).to have_content(@order1.status)
-      expect(page).to have_content(@order1.total)
+      expect(page).to have_content(@order1.total_currency)
       expect(page).to have_content(@order1.created_at)
       expect(page).not_to have_content(" on #{@order1.updated_at}")
     end
@@ -51,11 +51,11 @@ RSpec.describe 'user views a past order' do
 
       expect(current_path).to eq(order_path(@order1))
       expect(page).to have_content(@outing1.title)
-      expect(page).to have_content(@order_outing1.subtotal)
+      expect(page).to have_content(@order_outing1.subtotal_currency)
       expect(page).to have_content(@outing2.title)
-      expect(page).to have_content(@order_outing2.subtotal)
+      expect(page).to have_content(@order_outing2.subtotal_currency)
       expect(page).to have_content(@order1.status)
-      expect(page).to have_content(@order1.total)
+      expect(page).to have_content(@order1.total_currency)
       expect(page).to have_content(@order1.created_at)
       expect(page).not_to have_content(" on #{@order1.updated_at}")
     end
@@ -73,11 +73,11 @@ RSpec.describe 'user views a past order' do
 
       expect(current_path).to eq(order_path(@order1))
       expect(page).to have_content(@outing1.title)
-      expect(page).to have_content(@order_outing1.subtotal)
+      expect(page).to have_content(@order_outing1.subtotal_currency)
       expect(page).to have_content(@outing2.title)
-      expect(page).to have_content(@order_outing2.subtotal)
+      expect(page).to have_content(@order_outing2.subtotal_currency)
       expect(page).to have_content(@order1.status)
-      expect(page).to have_content(@order1.total)
+      expect(page).to have_content(@order1.total_currency)
       expect(page).to have_content(@order1.created_at)
       expect(page).to have_content(" on #{@order1.updated_at}")
     end
@@ -95,11 +95,11 @@ RSpec.describe 'user views a past order' do
 
       expect(current_path).to eq(order_path(@order1))
       expect(page).to have_content(@outing1.title)
-      expect(page).to have_content(@order_outing1.subtotal)
+      expect(page).to have_content(@order_outing1.subtotal_currency)
       expect(page).to have_content(@outing2.title)
-      expect(page).to have_content(@order_outing2.subtotal)
+      expect(page).to have_content(@order_outing2.subtotal_currency)
       expect(page).to have_content(@order1.status)
-      expect(page).to have_content(@order1.total)
+      expect(page).to have_content(@order1.total_currency)
       expect(page).to have_content(@order1.created_at)
       expect(page).to have_content(" on #{@order1.updated_at}")
     end

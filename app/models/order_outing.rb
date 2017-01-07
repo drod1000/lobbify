@@ -1,4 +1,4 @@
-class OrderItem < ApplicationRecord
+class OrderOuting < ApplicationRecord
   belongs_to :order
   belongs_to :outing
 

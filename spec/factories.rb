@@ -17,4 +17,13 @@ FactoryGirl.define do
     image_url "some image"
     politician
   end
+
+  factory :user do
+    
+  end
+
+  factory :order do
+    status 0
+    user
+  end
 end

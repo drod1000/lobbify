@@ -1,6 +1,6 @@
 <div class='container'>
   <h1>Order no. <%= @order.id %> details</h1>
-  <h3>Created at: <%= @order.created_at %></h3>
+  <h3>Created at: <%= @order.created_at %> with Order total: <%= @order.total %></h3>
   <h3>Current status: <span class="label label-default"><%= @order.status %></span>
     <% if @order.completed? || @order.cancelled? %>
       on <%= @order.updated_at %>
@@ -13,15 +13,15 @@
       <th>Quantity</th>
       <th>Sub Total</th>
     </tr>
-    <% @order.order_items.each do |order_item|%>
+    <% @order.order_outings.each do |order_outing|%>
       <tr>
-        <td><%= link_to order_item.outing.title, outing_path(order_item.outing) %></td>
+        <td><%= link_to order_outing.outing.title, outing_path(order_outing.outing) %></td>
       </tr>
       <tr>
-        <td><%= order_item.quantity %></td>
+        <td><%= order_outing.quantity %></td>
       </tr>
       <tr>
-        <td><%= order_item.subtotal %></td>
+        <td><%= order_outing.subtotal %></td>
       </tr>
     <% end %>
   </table>

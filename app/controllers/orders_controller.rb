@@ -5,8 +5,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    if !current_user.orders.include?(@order)
-      flash[:danger] = "You are not authorized to view this detail"
+    if current_user.nil? || !current_user.orders.include?(@order)
+      flash[:danger] = "You can only view your own orders. Please log in with the appropritate credentials."
       redirect_to root_path
     end
   end

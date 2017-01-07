@@ -24,4 +24,11 @@ RSpec.feature 'User log out' do
     expect(page).to have_content('Login')
     expect(page).not_to have_content('Logout')
   end
+  it 'visitor (not logged in user) only have login, no logout button' do
+    visit root_path
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content('Login')
+    expect(page).not_to have_content('Logout')
+  end
 end

@@ -32,7 +32,11 @@ describe User do
     it 'can calculate total' do
       order = create(:order)
       outing = create(:outing)
-      order.order_items.create(order_id: order.id, outing_id: outing.id, quantity: 5)
+      order.order_items.create(order_id: order.id, outing_id: outing.id, quantity: 3)
+      order.order_items.create(order_id: order.id, outing_id: outing.id, quantity: 4)
+
+      expect(order.total).to eq((outing.adjusted_cost * 7))
+
     end
   end
 end

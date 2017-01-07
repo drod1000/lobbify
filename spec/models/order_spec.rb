@@ -25,6 +25,12 @@ describe User do
 
         expect(order).to respond_to(:order_outings)
       end
+
+      it 'has many outings' do
+        order = create(:order)
+
+        expect(order).to respond_to(:outings)
+      end
     end
   end
 

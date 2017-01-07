@@ -47,6 +47,18 @@ describe Outing do
 
       expect(outing).to respond_to(:politician)
     end
+
+    it 'has many order_outings' do
+      outing = create(:outing)
+
+      expect(outing).to respond_to(:order_outings)
+    end
+
+    it 'has many orders' do
+      outing = create(:outing)
+
+      expect(outing).to respond_to(:orders)
+    end
   end
 
   describe 'methods' do

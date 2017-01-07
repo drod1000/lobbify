@@ -7,7 +7,7 @@
     </tr>
     <% @orders.each do |order|%>
       <tr>
-        <td><%= order.id %></td>
+        <td><%= link_to order.id, order_path(order) %></td>
       </tr>
     <% end %>
   </table>

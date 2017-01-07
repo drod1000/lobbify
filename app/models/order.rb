@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   has_many :order_outings
   has_many :outings, through: :order_outings
 
-  enum status: %w(ordered paid cancelled shipped)
+  enum status: %w(ordered paid cancelled shipped completed)
 
   def total
     order_outings.reduce(0) do |sum, order_outing|

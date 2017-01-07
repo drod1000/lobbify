@@ -42,7 +42,15 @@ describe User do
       order.order_outings.create(order_id: order.id, outing_id: outing_2.id, quantity: 4)
 
       expect(order.total).to eq((outing_1.adjusted_cost * 3 + outing_2.adjusted_cost * 4))
+    end
 
+    it 'can return total as currency' do
+      order = create(:order)
+      outing_1, outing_2 = create_list(:outing, 2)
+      order.order_outings.create(order_id: order.id, outing_id: outing_1.id, quantity: 3)
+      order.order_outings.create(order_id: order.id, outing_id: outing_2.id, quantity: 4)
+
+      expect(order.total_currency).to eq ('$350.00')
     end
   end
 end

@@ -37,5 +37,13 @@ describe OrderOuting do
 
       expect(order_outing.subtotal).to eq((outing.adjusted_cost * 5))
     end
+
+    it 'can return subtotal as currency' do
+      order = create(:order)
+      outing = create(:outing)
+      order_outing = OrderOuting.create(order_id: order.id, outing_id: outing.id, quantity: 5)
+
+      expect(order_outing.subtotal_currency).to eq('$250.00')
+    end
   end
 end

@@ -1,6 +1,7 @@
 class Outing < ApplicationRecord
   validates :title, :description, :image_url, :base_cost, presence: true
   belongs_to :politician
+  enum status: %w(default retired)
 
   include ActionView::Helpers::NumberHelper
 

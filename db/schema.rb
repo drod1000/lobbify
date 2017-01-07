@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20170107003835) do
     t.string   "description"
     t.integer  "base_cost"
     t.string   "image_url"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "politician_id"
+    t.integer  "status",        default: 0
     t.index ["politician_id"], name: "index_outings_on_politician_id", using: :btree
   end
 

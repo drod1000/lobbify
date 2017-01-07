@@ -1,6 +1,4 @@
 class Order < ApplicationRecord
-  include ActionView::Helpers::NumberHelper
-
   belongs_to :user
   has_many :order_outings
   has_many :outings, through: :order_outings

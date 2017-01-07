@@ -37,11 +37,11 @@ describe User do
   describe 'methods' do
     it 'can calculate total' do
       order = create(:order)
-      outing = create(:outing)
-      order.order_outings.create(order_id: order.id, outing_id: outing.id, quantity: 3)
-      order.order_outings.create(order_id: order.id, outing_id: outing.id, quantity: 4)
+      outing_1, outing_2 = create_list(:outing, 2)
+      order.order_outings.create(order_id: order.id, outing_id: outing_1.id, quantity: 3)
+      order.order_outings.create(order_id: order.id, outing_id: outing_2.id, quantity: 4)
 
-      expect(order.total).to eq((outing.adjusted_cost * 7))
+      expect(order.total).to eq((outing_1.adjusted_cost * 3 + outing_2.adjusted_cost * 4))
 
     end
   end

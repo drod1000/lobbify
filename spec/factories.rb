@@ -19,7 +19,13 @@ FactoryGirl.define do
   end
 
   factory :user do
-    
+    sequence :name do |n|
+      "Name #{n}"
+    end
+    sequence :email do |n|
+      "email#{n}@email.com"
+    end
+    password 'password'
   end
 
   factory :order do

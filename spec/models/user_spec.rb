@@ -30,10 +30,18 @@ describe User do
     end
 
     context 'valid attributes' do
-      it 'is is valid with all attributes' do
+      it 'is valid with all attributes' do
         user = User.new(name: "Daniel", email: "z@z.com", password: "z")
 
         expect(user).to be_valid
+      end
+    end
+
+    context 'associations' do
+      it 'responds to orders' do
+        user = User.new(name: "Daniel", email: "z@z.com", password: "z")
+
+        expect(user).to respond_to(:orders)
       end
     end
   end

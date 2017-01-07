@@ -1,7 +1,11 @@
 <div class='container'>
   <h1>Order no. <%= @order.id %> details</h1>
   <h3>Created at: <%= @order.created_at %></h3>
-  <h3>Current status: <span class="label label-default"><%= @order.status %></span></h3>
+  <h3>Current status: <span class="label label-default"><%= @order.status %></span>
+    <% if @order.completed? || @order.cancelled? %>
+      on <%= @order.updated_at %>
+    <% end %>
+  </h3>
 
   <table class = "table">
     <tr>

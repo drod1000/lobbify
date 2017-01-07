@@ -1,0 +1,8 @@
+<%= @politician.name %>
+<%= @outing.title %>
+<%= @outing.description %>
+<% if @outing.retired? %>
+  <%= "Outing Retired" %>
+<% else %>
+  <%= link_to "Add to Cart", carts_path(outing_id: @outing), method: :POST, class: "btn btn-success btn-sm" %>
+<% end %>

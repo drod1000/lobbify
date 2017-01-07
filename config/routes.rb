@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
   get '/dashboard' => 'users#show'
   get '/cart' => 'carts#index'
   post '/cart_increment' => 'carts#increment', :as => 'increment'
   post '/cart_decrement' => 'carts#decrement', :as => 'decrement'
   # get '/orders' => 'orders#index'
   resources :orders, only: [:index, :show]
-  get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
+  get '/:name' => 'politicians#show', :as => 'categories'
 end

@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       flash[:success] = "Successfully logged in!"
       redirect_to dashboard_path
+    else
+      flash[:success] = @user.errors.full_messages
+      redirect_to login_path
     end
   end
 

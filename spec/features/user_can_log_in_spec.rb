@@ -1,8 +1,11 @@
 require 'rails_helper'
 
-RSpec.feature "User can log in" do
-  it "from root" do
-    user = User.create(name: "Daniel", email: "d@d.com", password: "password")
+RSpec.feature "User log in" do
+
+  before(:each) do
+    @user = User.create(name: "Daniel", email: "d@d.com", password: "password")
+  end
+  it "can log in from home page" do
     visit root_path
 
     expect(page).to have_link("Login")
@@ -11,8 +14,8 @@ RSpec.feature "User can log in" do
     expect(current_path).to eq(login_path)
 
     within("form") do
-      fill_in "email", with: user.email
-      fill_in "password", with: user.password
+      fill_in "email", with: @user.email
+      fill_in "password", with: @user.password
       click_on "Login"
     end
 

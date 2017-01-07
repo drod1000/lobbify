@@ -1,6 +1,6 @@
 <div class='container'>
   <h1>Order no. <%= @order.id %> details</h1>
-  <h3>Created at: <%= @order.created_at %> with Order total: <%= @order.total %></h3>
+  <h3>Created at: <%= @order.created_at %> with Order total: <%= @order.total_currency %></h3>
   <h3>Current status: <span class="label label-default"><%= @order.status %></span>
     <% if @order.completed? || @order.cancelled? %>
       on <%= @order.updated_at %>
@@ -21,7 +21,7 @@
         <td><%= order_outing.quantity %></td>
       </tr>
       <tr>
-        <td><%= order_outing.subtotal %></td>
+        <td><%= order_outing.subtotal_currency %></td>
       </tr>
     <% end %>
   </table>

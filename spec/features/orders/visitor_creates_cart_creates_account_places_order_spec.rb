@@ -13,7 +13,7 @@ describe "Visitor" do
     end
 
     click_on "View Cart"
-    click_on "Check Out"
+    click_on "Checkout"
     click_on "Create Account"
 
     within "form" do

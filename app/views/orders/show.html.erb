@@ -16,11 +16,7 @@
     <% @order.order_outings.each do |order_outing|%>
       <tr>
         <td><%= link_to order_outing.outing.title, outing_path(order_outing.outing) %></td>
-      </tr>
-      <tr>
         <td><%= order_outing.quantity %></td>
-      </tr>
-      <tr>
         <td><%= order_outing.subtotal_currency %></td>
       </tr>
     <% end %>

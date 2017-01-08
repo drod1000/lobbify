@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/cart' => 'carts#index'
   post '/cart_increment' => 'carts#increment', :as => 'increment'
   post '/cart_decrement' => 'carts#decrement', :as => 'decrement'
-  resources :orders, only: [:index, :show, :new]
+  resources :orders, only: [:index, :show]
+  post '/orders' => 'orders#create', :as => 'checkout'
   get '/:name' => 'politicians#show', :as => 'categories'
   resources :carts, only: [:create, :destroy]
   namespace :admin do

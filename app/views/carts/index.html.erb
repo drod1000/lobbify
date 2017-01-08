@@ -28,5 +28,5 @@
       <td class = "text-center" colspan = "6"><h4>Total Price: <%= @cart_total %></h4></td>
     </tr>
   </table>
-  <%= link_to "Check Out", new_order_path %>
+  <%= link_to "Checkout", checkout_path, method: :POST %>
 </div>

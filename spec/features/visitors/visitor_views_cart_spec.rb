@@ -59,7 +59,7 @@ RSpec.describe "from outings index visitor" do
     expect(current_path).to eq(cart_path)
     expect(page).to have_content(outing.title)
 
-    click_on 'Check Out'
+    click_on 'Checkout'
 
     expect(current_path).to eq(login_path)
     expect(page).to have_link("Create Account")

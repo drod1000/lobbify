@@ -12,11 +12,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if session[:user_id].nil?
-      redirect_to login_path
-    else
-      create_order(session[:cart])
+    redirect_to login_path if session[:user_id].nil?
+    if create_order(session[:cart])
+      flash[:success] = 'Order was successfully placed!'
       redirect_to orders_path
+    else
+      flash[:danger] = 'Error during order creation, please try again.'
+      redirect_to cart_path
     end
   end
 
@@ -27,7 +29,6 @@ class OrdersController < ApplicationController
     cart.each do |outing_id, outing_qty|
       new_order.order_outings << OrderOuting.create(outing_id: outing_id, quantity: outing_qty)
     end
-    flash[:success] = 'Order was successfully placed!'
     new_order.save
   end
 end

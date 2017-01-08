@@ -8,6 +8,6 @@ describe "Visitor" do
 
     expect(page).to_not have_content(user.name)
     expect(page).to_not have_content(user.email)
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("Access forbidden.")
   end
 end

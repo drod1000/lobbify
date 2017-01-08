@@ -9,7 +9,7 @@ describe "Authenticated User logs in" do
 
     visit '/admin/users'
 
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("Access forbidden.")
     expect(page).to_not have_content("Make Admin")
   end
 end

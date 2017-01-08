@@ -6,7 +6,7 @@ describe "Visitor" do
 
     visit admin_users_path
 
-    expect(page).to have_content("The page you were looking for doesn't exist.")
+    expect(page).to have_content("Access forbidden.")
     expect(page).to_not have_content("Nick")
     expect(page).to_not have_content("Make Admin")
   end

@@ -41,5 +41,11 @@ RSpec.describe 'Visitor can checkout cart' do
       expect(page).to have_content(Order.first.id)
     end
 
+    visit cart_path
+
+    expect(page).not_to have_content(@outing1.title)
+    expect(page).not_to have_content(@outing2.title)
+    expect(page).not_to have_content(@outing3.title)
+    expect(page).not_to have_content(@outing4.title)
   end
 end

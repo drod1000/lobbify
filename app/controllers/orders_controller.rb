@@ -12,13 +12,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    redirect_to login_path if session[:user_id].nil?
-    if create_order(session[:cart])
-      flash[:success] = 'Order was successfully placed!'
-      redirect_to orders_path
+    if session[:user_id].nil?
+      redirect_to login_path
     else
-      flash[:danger] = 'Error during order creation, please try again.'
-      redirect_to cart_path
+      if create_order(session[:cart])
+        session[:cart] = {}
+        flash[:success] = 'Order was successfully placed!'
+        redirect_to orders_path
+      else
+        flash[:danger] = 'Error during order creation, please try again.'
+        redirect_to cart_path
+      end
     end
   end
 

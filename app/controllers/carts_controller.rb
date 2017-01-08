@@ -1,9 +1,9 @@
 class CartsController < ApplicationController
 
   def index
-    cart = Cart.new(session[:cart])
-    @contents = cart.contents_detailed
-    @cart_total = cart.total_currency
+    @cart = Cart.new(session[:cart])
+    @contents = @cart.contents_detailed
+    # @cart_total = cart.total_currency
   end
 
   def create

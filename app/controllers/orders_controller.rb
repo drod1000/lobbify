@@ -11,12 +11,28 @@ class OrdersController < ApplicationController
     end
   end
 
-  def new
-    # session[:user_id].nil? ? redirect_to checkout_path : redirect_to login_path
+  def create
     if session[:user_id].nil?
       redirect_to login_path
     else
-      redirect_to checkout_path #get '/orders' => 'orders#create', :as "Checkout"
+      if create_order(session[:cart])
+        session[:cart] = {}
+        flash[:success] = 'Order was successfully placed!'
+        redirect_to orders_path
+      else
+        flash[:danger] = 'Error during order creation, please try again.'
+        redirect_to cart_path
+      end
     end
+  end
+
+  private
+
+  def create_order(cart)
+    new_order = Order.new(status: "ordered", user: current_user)
+    cart.each do |outing_id, outing_qty|
+      new_order.order_outings << OrderOuting.create(outing_id: outing_id, quantity: outing_qty)
+    end
+    new_order.save
   end
 end

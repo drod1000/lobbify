@@ -37,4 +37,12 @@ class Cart
     number_to_currency(total)
   end
 
+  def outings_count
+    @contents.values.sum
+  end
+
+  def empty?
+    return true if outings_count == 0
+    false
+  end
 end

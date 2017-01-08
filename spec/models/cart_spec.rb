@@ -10,7 +10,9 @@ RSpec.describe Cart, type: :model do
   end
 
   scenario "contents is empty if initialized without any items" do
-    expect(@cart.contents).to eq({})    
+    expect(@cart.contents).to eq({})
+    expect(@cart.outings_count).to eq(0)
+    expect(@cart.empty?).to be_truthy
   end
 
   describe "add outing(s) to cart" do
@@ -19,6 +21,8 @@ RSpec.describe Cart, type: :model do
       @cart.add_outing(outing.id)
 
       expect(@cart.contents).to eq({outing.id.to_s => 1})
+      expect(@cart.outings_count).to eq(1)
+      expect(@cart.empty?).to be_falsy
     end
 
     scenario "add two outings" do
@@ -28,6 +32,21 @@ RSpec.describe Cart, type: :model do
       @cart.add_outing(outing2.id)
 
       expect(@cart.contents).to eq({outing1.id.to_s => 1, outing2.id.to_s => 1})
+      expect(@cart.outings_count).to eq(2)
+      expect(@cart.empty?).to be_falsy
+    end
+
+    scenario "add one outing once and another outing three times" do
+      outing1 = Outing.create(title: 'th1', description: 't1', image_url: 'b1', base_cost: 4)
+      outing2 = Outing.create(title: 'th2', description: 't2', image_url: 'b2', base_cost: 4)
+      @cart.add_outing(outing1.id)
+      @cart.add_outing(outing2.id)
+      @cart.add_outing(outing2.id)
+      @cart.add_outing(outing2.id)
+
+      expect(@cart.contents).to eq({outing1.id.to_s => 1, outing2.id.to_s => 3})
+      expect(@cart.outings_count).to eq(4)
+      expect(@cart.empty?).to be_falsy
     end
   end
 

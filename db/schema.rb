@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107162612) do
+ActiveRecord::Schema.define(version: 20170107213719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "order_items", force: :cascade do |t|
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "order_id"
-    t.integer  "outing_id"
-    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
-    t.index ["outing_id"], name: "index_order_items_on_outing_id", using: :btree
-  end
 
   create_table "order_outings", force: :cascade do |t|
     t.integer  "quantity"
@@ -69,12 +59,11 @@ ActiveRecord::Schema.define(version: 20170107162612) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "role",            default: 0
   end
 
-  add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "outings"
   add_foreign_key "order_outings", "orders"
   add_foreign_key "order_outings", "outings"
   add_foreign_key "orders", "users"

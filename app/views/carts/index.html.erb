@@ -1,9 +1,13 @@
 <div class='container'>
   <div class = "col-md-4">
-    <h1>Cart <%= link_to "Checkout", checkout_path, method: :POST, class: "btn btn-primary" %></h1>
+    <h1>Cart 
+      <% if !@cart.empty? %>
+        <%= link_to "Checkout", checkout_path, method: :POST, class: "btn btn-primary" %>
+      <% end %>
+    </h1>
   </div>
   <div class = "col-md-8 text-right">
-    <h1>Total Price: <%= @cart_total %></h1>
+    <h1>Total Price: <%= @cart.total_currency %></h1>
   </div>
 
   <table class = "table">

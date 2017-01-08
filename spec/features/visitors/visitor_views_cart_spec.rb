@@ -64,4 +64,10 @@ RSpec.describe "from outings index visitor" do
     expect(current_path).to eq(login_path)
     expect(page).to have_link("Create Account")
   end
+
+  scenario 'visitor cannot see Checkout button on empty cart' do
+    visit cart_path
+
+    expect(page).not_to have_content('Checkout')
+  end
 end

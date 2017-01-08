@@ -1,5 +1,10 @@
 <div class='container'>
-  <h1>Cart</h1>
+  <div class = "col-md-4">
+    <h1>Cart <%= link_to "Checkout", checkout_path, method: :POST, class: "btn btn-primary" %></h1>
+  </div>
+  <div class = "col-md-8 text-right">
+    <h1>Total Price: <%= @cart_total %></h1>
+  </div>
 
   <table class = "table">
     <tr>
@@ -25,8 +30,6 @@
       </tr>
     <% end %>
     <tr>
-      <td class = "text-center" colspan = "6"><h4>Total Price: <%= @cart_total %></h4></td>
     </tr>
   </table>
-  <%= link_to "Checkout", checkout_path, method: :POST %>
 </div>

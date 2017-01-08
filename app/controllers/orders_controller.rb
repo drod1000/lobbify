@@ -10,4 +10,13 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def new
+    # session[:user_id].nil? ? redirect_to checkout_path : redirect_to login_path
+    if session[:user_id].nil?
+      redirect_to login_path
+    else
+      redirect_to checkout_path #get '/orders' => 'orders#create', :as "Checkout"
+    end
+  end
 end

@@ -1,0 +1,20 @@
+<div class='container'>
+  <h1>Users</h1>
+
+  <table class = "table">
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th></th>
+    </tr>
+    <% @users.each do |user|%>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.role %></td>
+        <% if user.default? %>
+          <td><%= link_to "Make Admin", admin_makes_admin_path(user_id: user.id), method: :POST,class:'btn btn-success btn-sm' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

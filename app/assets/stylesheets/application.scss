@@ -1,3 +1,7 @@
+/*
+ *= require rails_bootstrap_forms
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -45,4 +49,8 @@ body {
 }
 .politician_outing {
   text-align: center;
+}
+
+p.login-or-separator {
+  margin-top: 10px;
 }

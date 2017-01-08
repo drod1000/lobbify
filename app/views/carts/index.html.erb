@@ -1,8 +1,10 @@
 <div class='container'>
   <div class = "col-md-4">
-    <h1>Cart 
-      <% if !@cart.empty? %>
+    <h1>Cart
+      <% if !@cart.empty? && current_user %>
         <%= link_to "Checkout", checkout_path, method: :POST, class: "btn btn-primary" %>
+      <% elsif !@cart.empty? %>
+        <%= link_to "Login or Create Account to Checkout", checkout_path, method: :POST, class: "btn btn-primary" %>
       <% end %>
     </h1>
   </div>

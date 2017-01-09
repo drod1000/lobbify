@@ -30,3 +30,6 @@
   </div>
 
 </div>
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning btn-lg" %>

@@ -8,6 +8,6 @@ class Admin::BaseController < ApplicationController
 
   def dashboard
     @orders = Order.all
+    @user = current_user
   end
-
 end

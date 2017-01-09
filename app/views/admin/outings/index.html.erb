@@ -1,0 +1,28 @@
+<div class='container'>
+  <%= search_form_for [:admin, @search] do |f| %>
+    <%= f.label :title_cont, "Search by Outing Title" %>
+    <%= f.text_field :title_cont %>
+
+    <%= f.submit "Search", class: 'btn btn-danger btn-xs' %>
+  <% end %>
+</div>
+<br>
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th> Outing </th>
+      <th> Politician </th>
+      <th> Description </th>
+      <th> Action </th>
+    </tr>
+    <% @outings.each do |outing| %>
+    <tr>
+      <td> <%= outing.title %> </td>
+      <td> <%= outing.politician.name %> </td>
+      <td> <%= outing.description %> </td>
+      <td> <%= link_to "Edit", edit_admin_outing_path(outing), class:'btn btn-info btn-xs' %> </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

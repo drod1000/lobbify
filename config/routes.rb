@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => 'outings#index'
   resources 'politicians', only: [:index]
   resources :outings, only: [:index, :show]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :carts, only: [:create, :destroy]
   namespace :admin do
     resources :users, only: [:index]
+    resources :outings, only: [:index, :edit, :update]
     post '/makes_admin' => 'users#make_admin', :as => 'makes_admin'
     get '/dashboard' => 'base#dashboard'
   end

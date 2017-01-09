@@ -18,6 +18,8 @@ describe "Admin" do
       fill_in 'outing[title]', with: "Biking"
       fill_in 'outing[description]', with: "Ride Bike"
       fill_in 'outing[base_cost]', with: 1000
+      fill_in 'outing[image_url]', with: 'pic.jpg'
+      select 'Retired', from: 'outing[status]'
       click_on "Update Outing"
     end
 

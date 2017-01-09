@@ -1,9 +1,7 @@
 require 'rails_helper'
 
-describe 'User' do
+describe 'Visitor' do
   scenario 'unsuccessfully visits admin dashboard' do
-    admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 0)
-    page.set_rack_session(user_id: admin.id)
 
     visit '/admin/dashboard'
 

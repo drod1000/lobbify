@@ -20,7 +20,7 @@
             </td>
             <td>
               <% if order.paid? %>
-                <%= link_to "Mark as Completed", "#",  class: "btn btn-default" %>
+                <%= link_to "Mark as Completed", completed_path(id: order.id), method: "POST",  class: "btn btn-default" %>
               <% end %>
             </td>
           </tr>

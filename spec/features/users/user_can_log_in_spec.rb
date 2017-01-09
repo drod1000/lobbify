@@ -46,6 +46,7 @@ RSpec.feature "User log in" do
     expect(page).to have_link('Login')
     expect(page).not_to have_link('Logout')
   end
+
   it "cannot log in from home page with email of another user" do
     visit root_path
 
@@ -64,5 +65,17 @@ RSpec.feature "User log in" do
     expect(page).to have_content('Failed login')
     expect(page).to have_link('Login')
     expect(page).not_to have_link('Logout')
+  end
+
+  scenario "and sees link to admin dashboard and admin outings index" do
+    admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
+    user  = User.create(name: "Laszlo", email: "email2@email.com", password: "1password", role: 0)
+
+    page.set_rack_session(user_id: user.id)
+
+    visit root_path
+
+    expect(page).to_not have_link("Outings Index")
+    expect(page).to_not have_link("Admin Dashboard")
   end
 end

@@ -17,6 +17,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-left">
           <li><%= link_to "View Cart", cart_path, class: "btn btn-default btn-sm" %></li>
+          <% if current_user && current_user.admin? %>
+            <li><%= link_to "Outings Index", admin_outings_path, class: "btn btn-default btn-sm" %></li>
+            <li><%= link_to "Admin Dashboard", admin_dashboard_path, class: "btn btn-default btn-sm" %></li>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>

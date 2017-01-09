@@ -15,7 +15,7 @@
               </td>
             <td>
               <% if order.ordered? %>
-                <%= link_to "Mark as Paid", "#",  class: "btn btn-default" %>
+                <%= link_to "Mark as Paid", paid_path(id: order.id), method: "POST",  class: "btn btn-default" %>
               <% end %>
             </td>
             <td>

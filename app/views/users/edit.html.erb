@@ -1,0 +1,9 @@
+<h1> Edit <%= current_user.name %> </h1>
+<div class = "col-md-offset-4 col-md-4">
+  <%= bootstrap_form_for @user do |f| %>
+    <%= f.text_field :name, placeholder: 'Your New Name', skip_label: true %>
+    <%= f.email_field :email, placeholder: 'Your New Email: name@example.com', skip_label: true %>
+    <%= f.password_field :password, placeholder: 'Your New Password', skip_label: true %>
+    <%= f.submit 'Update User', {class: "btn btn-info btn-block"}%>
+  <% end %>
+</div>

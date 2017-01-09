@@ -1,0 +1,5 @@
+<% @outings.each do |outing| %>
+  <%= outing.title %>
+  <%= outing.description %>
+  <%= link_to "Edit", edit_admin_outing_path(outing), class:'btn btn-default btn-lg' %>
+<% end %>

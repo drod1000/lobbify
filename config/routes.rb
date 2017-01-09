@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   resources :carts, only: [:create, :destroy]
   namespace :admin do
     resources :users, only: [:index]
+    resources :outings, only: [:index, :edit, :update]
     post '/makes_admin' => 'users#make_admin', :as => 'makes_admin'
-    get '/dashboard' => 'base#dashboard' 
+    get '/dashboard' => 'base#dashboard'
   end
 end

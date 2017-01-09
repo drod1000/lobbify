@@ -6,4 +6,8 @@ class Admin::BaseController < ApplicationController
     render file: "/public/403" unless current_user && current_user.admin?
   end
 
+  def dashboard
+
+  end
+
 end

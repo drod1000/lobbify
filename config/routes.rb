@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     post '/makes_admin' => 'users#make_admin', :as => 'makes_admin'
     get '/dashboard' => 'base#dashboard'
   end
-  post '/order_cancel' => 'order#cancel', :as => 'cancel'
-  post '/order_paid' => 'order#paid', :as => 'paid'
-  post '/order_completed' => 'order#completed', :as => 'completed'
+  post '/order_cancel' => 'orders#cancel', :as => 'cancel'
+  post '/order_paid' => 'orders#paid', :as => 'paid'
+  post '/order_completed' => 'orders#completed', :as => 'completed'
 end

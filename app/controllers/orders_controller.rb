@@ -26,6 +26,12 @@ class OrdersController < ApplicationController
     end
   end
 
+  def cancel
+    @order = Order.find(params[:id])
+    @order.update(status: "cancelled")
+    redirect_to admin_dashboard_path
+  end
+
   private
 
   def create_order(cart)

@@ -10,7 +10,7 @@
             <td><%= order.status %></td>
             <td>
               <% if order.ordered? || order.paid? %>
-                <%= link_to "Cancel", "#", class: "btn btn-default" %>
+                <%= link_to "Cancel", cancel_path(id: order.id), method: "POST", class: "btn btn-default" %>
               <% end %>
               </td>
             <td>

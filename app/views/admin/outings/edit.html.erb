@@ -1,9 +1,10 @@
 <h1> Edit <%= @outing.title %> </h1>
 <div class = "col-md-offset-4 col-md-4">
-  <%= bootstrap_form_for @outing do |f| %>
+  <%= bootstrap_form_for [:admin, @outing] do |f| %>
     <%= f.text_field :title, placeholder: 'New title', skip_label: true %>
-    <%= f.email_field :description, placeholder: 'New Description', skip_label: true %>
-    <%= f.password_field :base_cost, placeholder: 'New Base Cost', skip_label: true %>
-    <%= f.submit 'Update Outing', {class: "btn btn-info btn-block"}%>
+    <%= f.text_field :description, placeholder: 'New Description', skip_label: true %>
+    <%= f.number_field :base_cost, placeholder: 'New Base Cost', skip_label: true %>
+    <%= f.select(:status, [['Default','default'],['Retired','retired']]) %>
+    <%= f.submit 'Update Outing', :class => "btn btn-info btn-block" %>
   <% end %>
 </div>

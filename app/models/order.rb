@@ -5,6 +5,11 @@ class Order < ApplicationRecord
 
   enum status: %w(ordered paid cancelled shipped completed)
 
+  scope :ordered, -> { where(status: "ordered") }
+  scope :paid, -> { where(status: "paid") }
+  scope :cancelled, -> { where(status: "cancelled") }
+  scope :completed, -> { where(status: "completed") }
+
   def total
     order_outings.reduce(0) do |sum, order_outing|
       sum += order_outing.subtotal

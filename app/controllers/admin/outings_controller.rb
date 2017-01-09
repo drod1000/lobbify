@@ -1,7 +1,9 @@
 class Admin::OutingsController < Admin::BaseController
 
   def index
-    @outings = Outing.all
+    @search = Outing.search(params[:q])
+    @outings = @search.result
+    # @outings = Outing.all
   end
 
   def edit

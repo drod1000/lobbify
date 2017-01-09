@@ -1,3 +1,12 @@
+<div class='container'>
+  <%= search_form_for [:admin, @search] do |f| %>
+    <%= f.label :title_cont, "Search by Outing Title" %>
+    <%= f.text_field :title_cont %>
+
+    <%= f.submit "Search", class: 'btn btn-danger btn-xs' %>
+  <% end %>
+</div>
+
 <div class="container">
   <table class="table">
     <tr>

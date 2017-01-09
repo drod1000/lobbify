@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index]
     post '/makes_admin' => 'users#make_admin', :as => 'makes_admin'
+    get '/dashboard' => 'base#dashboard' 
   end
 end

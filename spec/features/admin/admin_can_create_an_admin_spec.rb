@@ -25,4 +25,16 @@ describe "Admin logs in" do
     end
     expect(current_path).to eq(admin_users_path)
   end
+
+  scenario "and sees link to admin dashboard and admin outings index" do
+    admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
+    user  = User.create(name: "Laszlo", email: "email2@email.com", password: "1password", role: 0)
+
+    page.set_rack_session(user_id: admin.id)
+
+    visit root_path
+
+    expect(page).to have_link("Outings Index")
+    expect(page).to have_link("Admin Dashboard")
+  end
 end

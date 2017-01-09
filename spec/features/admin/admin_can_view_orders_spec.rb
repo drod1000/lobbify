@@ -15,6 +15,8 @@ describe "Admin views orders" do
 
     visit admin_dashboard_path
 
+    save_and_open_page
+
     within("#all") do
       within("tr:nth-of-type(2)") do
         expect(page).to have_content(@order_1.id)
@@ -36,25 +38,26 @@ describe "Admin views orders" do
         expect(page).to have_content(@order_4.id)
       end
     end
+    within ("#admin-tabs") do
+      within("li:nth-of-type(1)") do
+        expect(page).to have_content("4")
+      end
 
-    within("li:nth-of-type(1)") do
-      expect(page).to have_content("4")
-    end
+      within("li:nth-of-type(2)") do
+        expect(page).to have_content("1")
+      end
 
-    within("li:nth-of-type(2)") do
-      expect(page).to have_content("1")
-    end
+      within("li:nth-of-type(3)") do
+        expect(page).to have_content("1")
+      end
 
-    within("li:nth-of-type(3)") do
-      expect(page).to have_content("1")
-    end
+      within("li:nth-of-type(4)") do
+        expect(page).to have_content("1")
+      end
 
-    within("li:nth-of-type(4)") do
-      expect(page).to have_content("1")
-    end
-
-    within("li:nth-of-type(5)") do
-      expect(page).to have_content("1")
+      within("li:nth-of-type(5)") do
+        expect(page).to have_content("1")
+      end
     end
   end
 end

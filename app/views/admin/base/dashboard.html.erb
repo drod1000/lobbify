@@ -1,1 +1,39 @@
 <h1> Admin Dashboard </h1>
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist" id="admin-tabs">
+    <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All <span class="badge"><%= @orders.count %></a></li>
+    <li role="presentation"><a href="#ordered" aria-controls="ordered" role="tab" data-toggle="tab">Ordered</a></li>
+    <li role="presentation"><a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">Paid</a></li>
+    <li role="presentation"><a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">Cancelled</a></li>
+    <li role="presentation"><a href="#completed" aria-controls="completed" role="tab" data-toggle="tab">Completed</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="all">
+      <table class = "table">
+        <tr>
+          <th>Order ID</th>
+          <th>Current Status</th>
+          <th colspan="3">Action</th>
+        </tr>
+        <% @orders.each do |order|%>
+          <tr>
+            <td><%= link_to order.id, order_path(order) %></td>
+            <td><%= order.status %></td>
+            <td><%= link_to "Cancel"%></td>
+            <td><%= link_to "Mark as Paid"%></td>
+            <td><%= link_to "Mark as Completed"%></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ordered">...</div>
+    <div role="tabpanel" class="tab-pane" id="paid">...</div>
+    <div role="tabpanel" class="tab-pane" id="cancelled">...</div>
+    <div role="tabpanel" class="tab-pane" id="completed">...</div>
+  </div>
+
+</div>

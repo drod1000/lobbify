@@ -5,7 +5,7 @@ describe 'Admin' do
     admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
     page.set_rack_session(user_id: admin.id)
 
-    visit '/admin/dashboard'
+    visit admin_dashboard_path
 
     expect(page).to have_content("Admin Dashboard")
   end

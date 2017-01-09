@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root :to => 'outings#index'
   resources 'politicians', only: [:index]
   resources :outings, only: [:index, :show]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit, :update]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'

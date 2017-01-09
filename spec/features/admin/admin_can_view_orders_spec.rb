@@ -58,6 +58,7 @@ describe "Admin views orders" do
       end
     end
   end
+
   scenario "and can see PAID orders" do
     visit admin_dashboard_path
 
@@ -100,4 +101,91 @@ describe "Admin views orders" do
       end
     end
   end
+
+  scenario "and can see CANCELLED orders" do
+    visit admin_dashboard_path
+
+    within("#admin-tabs") do
+      click_on "Cancelled"
+    end
+
+    within("#cancelled") do
+      within("tr:nth-of-type(2)") do
+        expect(page).to have_content(@order_3.id)
+        expect(page).not_to have_link("Cancel")
+        expect(page).not_to have_link("Mark as Paid")
+        expect(page).not_to have_link("Mark as Completed")
+      end
+
+      expect(page).not_to have_content(@order_1.id)
+      expect(page).not_to have_content(@order_2.id)
+      expect(page).not_to have_content(@order_4.id)
+    end
+
+    within ("#admin-tabs") do
+      within("li:nth-of-type(1)") do
+        expect(page).to have_content("4")
+      end
+
+      within("li:nth-of-type(2)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(3)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(4)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(5)") do
+        expect(page).to have_content("1")
+      end
+    end
+  end
+
+  scenario "and can see COMPLETED orders" do
+    visit admin_dashboard_path
+
+    within("#admin-tabs") do
+      click_on "Completed"
+    end
+
+    within("#completed") do
+      within("tr:nth-of-type(2)") do
+        expect(page).to have_content(@order_4.id)
+        expect(page).not_to have_link("Cancel")
+        expect(page).not_to have_link("Mark as Paid")
+        expect(page).not_to have_link("Mark as Completed")
+      end
+
+      expect(page).not_to have_content(@order_1.id)
+      expect(page).not_to have_content(@order_2.id)
+      expect(page).not_to have_content(@order_3.id)
+    end
+
+    within ("#admin-tabs") do
+      within("li:nth-of-type(1)") do
+        expect(page).to have_content("4")
+      end
+
+      within("li:nth-of-type(2)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(3)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(4)") do
+        expect(page).to have_content("1")
+      end
+
+      within("li:nth-of-type(5)") do
+        expect(page).to have_content("1")
+      end
+    end
+  end
+
 end

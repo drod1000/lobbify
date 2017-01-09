@@ -21,8 +21,12 @@
     <div role="tabpanel" class="tab-pane" id="paid">
         <%= render partial: "admin-orders", locals: {list: @orders.paid} %>
     </div>
-    <div role="tabpanel" class="tab-pane" id="cancelled">...</div>
-    <div role="tabpanel" class="tab-pane" id="completed">...</div>
+    <div role="tabpanel" class="tab-pane" id="cancelled">
+        <%= render partial: "admin-orders", locals: {list: @orders.cancelled} %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="completed">
+        <%= render partial: "admin-orders", locals: {list: @orders.completed} %>
+    </div>
   </div>
 
 </div>

@@ -26,7 +26,7 @@ describe "Admin logs in" do
     expect(current_path).to eq(admin_users_path)
   end
 
-  scenario "and sees link to admin dashboard and admin outings index" do
+  scenario "and sees link to admin dashboard and admin outings index and admin users index" do
     admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
     user  = User.create(name: "Laszlo", email: "email2@email.com", password: "1password", role: 0)
 
@@ -36,5 +36,6 @@ describe "Admin logs in" do
 
     expect(page).to have_link("Outings Index")
     expect(page).to have_link("Admin Dashboard")
+    expect(page).to have_link("Admin Users")
   end
 end

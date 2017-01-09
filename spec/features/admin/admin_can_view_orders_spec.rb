@@ -188,4 +188,71 @@ describe "Admin views orders" do
     end
   end
 
+  scenario "and cancels an order" do
+    visit admin_dashboard_path
+
+    within("#all") do
+      within("tr:nth-of-type(2)") do
+        expect(page).to have_content(@order_1.id)
+        click_on "Cancel"
+      end
+    end
+
+    expect(current_path).to eq admin_dashboard_path
+
+    within ("#admin-tabs") do
+      within("li:nth-of-type(2)") do
+        expect(page).to have_content("0")
+      end
+
+      within("li:nth-of-type(4)") do
+        expect(page).to have_content("2")
+      end
+    end
+  end
+
+  scenario "and marks an order as paid" do
+    visit admin_dashboard_path
+
+    within("#all") do
+      within("tr:nth-of-type(2)") do
+        click_on "Mark as Paid"
+      end
+    end
+
+    expect(current_path).to eq admin_dashboard_path
+
+    within ("#admin-tabs") do
+      within("li:nth-of-type(2)") do
+        expect(page).to have_content("0")
+      end
+
+      within("li:nth-of-type(3)") do
+        expect(page).to have_content("2")
+      end
+    end
+  end
+
+  scenario "and marks an order as completed" do
+    visit admin_dashboard_path
+
+    within("#all") do
+      within("tr:nth-of-type(3)") do
+        click_on "Mark as Completed"
+      end
+    end
+
+    expect(current_path).to eq admin_dashboard_path
+
+    within ("#admin-tabs") do
+      within("li:nth-of-type(3)") do
+        expect(page).to have_content("0")
+      end
+
+      within("li:nth-of-type(5)") do
+        expect(page).to have_content("2")
+      end
+    end
+  end
+
 end

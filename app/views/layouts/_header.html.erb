@@ -27,6 +27,9 @@
           <% if current_user %>
             <li class = "label" >Logged in as <%= current_user.name %></li>
             <li><%= link_to "Logout", logout_path, method: :DELETE, class: "btn btn-default btn-sm" %></li>
+            <li>
+              <%= link_to "Orders", orders_path, class: "btn btn-default btn-sm" %>
+            </li>
           <% else %>
             <li><%= link_to "Login", login_path, class: "btn btn-default btn-sm" %></li>
           <% end %>

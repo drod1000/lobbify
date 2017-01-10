@@ -6,7 +6,6 @@ RSpec.describe "Method path_creator" do
       include ApplicationHelper
     end
     @tester = PathCreatorTest.new
-    # @expected_output = "Some_Name"
   end
 
   describe "it replaces speces" do

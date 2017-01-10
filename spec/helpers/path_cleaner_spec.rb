@@ -6,7 +6,6 @@ RSpec.describe "Method path_cleaner" do
       include ApplicationHelper
     end
     @tester = PathCleanerTest.new
-    # @expected_output = "some name"
   end
 
   describe "it adds spaces" do

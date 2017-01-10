@@ -4,6 +4,7 @@ RSpec.describe 'user views a past order' do
 
   before(:each) do
     @test_user1, @test_user2 = create_list(:user, 2)
+    @admin_user = create(:user, role: 'admin')
     @order1, @order2 = create_list(:order, 2, user: @test_user1)
     @order3, @order4 = create_list(:order, 2, user: @test_user2)
     @outing1, @outing2, @outing3, @outing4 = create_list(:outing, 4)
@@ -11,6 +12,33 @@ RSpec.describe 'user views a past order' do
     @order_outing2 = OrderOuting.create(order_id: @order1.id, outing_id: @outing2.id, quantity: 2)
     @order_outing3 = OrderOuting.create(order_id: @order3.id, outing_id: @outing3.id, quantity: 3)
     @order_outing4 = OrderOuting.create(order_id: @order3.id, outing_id: @outing4.id, quantity: 4)
+  end
+
+  describe 'admin can view details of any order' do
+    it 'can open any orders' do
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin_user)
+
+      visit admin_dashboard_path
+
+      within('#all') do
+        click_on "#{@order1.id}"
+      end
+
+      expect(current_path).to eq(order_path(@order1.id))
+      expect(page).to have_content(@order1.user.name)
+      expect(page).to have_content(@order1.user.address)
+      within('tr:nth-of-type(3)') do
+        within('td:nth-of-type(2)') do
+          expect(page).to have_content(@outing2.adjusted_cost_currency)
+        end
+      end
+      within('tr:nth-of-type(3)') do
+        within('td:nth-of-type(3)') do
+          save_and_open_page
+          expect(page).to have_content(@order_outing2.quantity)
+        end
+      end
+    end
   end
 
   describe 'only users own orders when user is logged in' do

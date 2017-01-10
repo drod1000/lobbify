@@ -26,6 +26,9 @@ FactoryGirl.define do
       "email#{n}@email.com"
     end
     password 'password'
+    sequence :address do |n|
+      "#{n} Test Address"
+    end
   end
 
   factory :order do

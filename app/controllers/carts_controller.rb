@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
   def index
     @cart = Cart.new(session[:cart])
-    @contents = @cart.contents_detailed
+    # @contents = @cart.contents_detailed
   end
 
   def create

@@ -77,7 +77,7 @@ p.login-or-separator {
   font-size: 20px;
 }
 #user-show {
-  background: linear-gradient(to right, #0099F7 , white );
+  background: linear-gradient(to right, #c3ccd2 , white );
 }
 #pol-img {
   height: 200px;
@@ -93,4 +93,11 @@ p.login-or-separator {
 
 #out-img {
   max-height: 350px;
+}
+
+#senate-show {
+  height: 500px;
+  width: 100%;
+  margin: auto 0;
+  margin-top: 10px;
 }

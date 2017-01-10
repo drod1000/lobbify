@@ -5,7 +5,7 @@ describe "Visitor" do
     politician = create(:politician)
     outing_1, outing_2 = create_list(:outing, 2, politician: politician)
 
-    visit root_path
+    visit outings_path
 
     within "#outing-index:nth-of-type(1)" do
       click_on "Add to Cart"

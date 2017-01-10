@@ -5,12 +5,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   padding-top: 50px;
 }
 
 body, html {
   height: 100%;
+}
+
+#dashboard{
+  background: linear-gradient(to left, #0099F7 , white );
 }
 
 #outing-index {
@@ -121,3 +126,7 @@ img#large_logo {
   font-size: 3em;
 }
 
+#senate {
+  height: 100%;
+  width: 100%;
+}

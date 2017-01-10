@@ -48,7 +48,7 @@ RSpec.describe "from outings index visitor" do
     politician = Politician.create(name: 'Dan', party: 'de', multiplier: 2, image: 't')
     outing = politician.outings.create(title: 'th', description: 't', image_url: '/images/golf.jpg', base_cost: 4, status: 0)
 
-    visit root_path
+    visit outings_path
 
     within("#outing-index") do
       click_on("Add to Cart")

@@ -6,16 +6,21 @@
       on <%= @order.updated_at %>
     <% end %>
   </h3>
+  <h3>Purchaser details:</h3>
+  <p>Name: <%= @order.user.name %></p>
+  <p>Address: <%= @order.user.address %></p>
 
   <table class = "table">
     <tr>
       <th>Outing</th>
+      <th>Piece price</th>
       <th>Quantity</th>
       <th>Sub Total</th>
     </tr>
     <% @order.order_outings.each do |order_outing|%>
       <tr>
         <td><%= link_to order_outing.outing.title, outing_path(order_outing.outing) %></td>
+        <td><%= order_outing.outing.adjusted_cost_currency %></td>
         <td><%= order_outing.quantity %></td>
         <td><%= order_outing.subtotal_currency %></td>
       </tr>

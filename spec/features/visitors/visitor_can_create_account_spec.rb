@@ -7,6 +7,7 @@ RSpec.feature "User can create a new account" do
     fill_in "user[name]", with: "Daniel"
     fill_in "user[email]", with: "d@d.com"
     fill_in "user[password]", with: "password"
+    fill_in "user[address]", with: "Test Address"
     click_on "Create User"
 
     expect(current_path).to eq (dashboard_path)
@@ -14,6 +15,7 @@ RSpec.feature "User can create a new account" do
     expect(page).to have_content("Logged in as Daniel")
     expect(page).to have_content("Name: Daniel")
     expect(page).to have_content("Email: d@d.com")
+    expect(page).to have_content("Address: Test Address")
     expect(page).to_not have_link("Login")
     expect(page).to have_link("Logout")
   end

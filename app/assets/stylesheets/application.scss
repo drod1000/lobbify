@@ -7,7 +7,11 @@
 
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
+}
+
+body, html {
+  height: 100%;
 }
 
 #dashboard{
@@ -34,6 +38,11 @@ body {
  width: 75px;
 }
 
+.navbar {
+  background: white;
+  border-bottom: 1px solid black;
+}
+
 .navbar-brand {
   padding: 0;
   margin: 0;
@@ -58,6 +67,63 @@ body {
 
 p.login-or-separator {
   margin-top: 10px;
+}
+
+img#small_logo {
+  padding: 5px;
+  height: 100%;
+}
+
+img#large_logo {
+  padding: 5px;
+  height: 100%;
+}
+
+.label {
+  color: black;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+.splash {
+  padding-top: -60px;
+  height: 100%;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.splash_top {
+  background-image: url('sky.jpg');
+  background-size: cover;
+  min-height: 400px;
+  height: 80%;
+  padding: 50px;
+}
+
+.splash_text {
+  text-align: center;
+  background: white;
+  font-size: 2em;
+}
+
+.splash_bottom {
+  background-image: url('flag.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.splash_bottom_info {
+  height: 300px;
+  background-color: red;
+  background-opacity: 0.4;
+}
+
+.tagline {
+  color: white;
+}
+
+.tagline > h2 {
+  font-size: 3em;
 }
 
 #senate {

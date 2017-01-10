@@ -19,9 +19,10 @@
       <th>Image</th>
       <th>Price</th>
       <th>Quantity</th>
+      <th>Sub Total</th>
       <th>Action</th>
     </tr>
-    <% @contents.each do |content, content_qty|%>
+    <% @cart.contents_detailed.each do |content, content_qty|%>
       <tr>
         <td><%= content.title %></td>
         <td><%= content.description %></td>
@@ -32,6 +33,9 @@
           <% if content_qty >= 2 %>
             <%= link_to "-", decrement_path(outing_id: content.id), method: :POST, class:'btn btn-warning btn-xs'%></td></td>
           <% end %>
+          <td>
+            <%= @cart.sub_total_currency(content, content_qty) %>
+          </td>
         <td><%= link_to "Remove", "/carts/#{content.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
       </tr>
     <% end %>

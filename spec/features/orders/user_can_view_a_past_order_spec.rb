@@ -34,7 +34,6 @@ RSpec.describe 'user views a past order' do
       end
       within('tr:nth-of-type(3)') do
         within('td:nth-of-type(3)') do
-          save_and_open_page
           expect(page).to have_content(@order_outing2.quantity)
         end
       end

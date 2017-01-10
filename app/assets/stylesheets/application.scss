@@ -6,7 +6,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 body, html {
@@ -73,11 +73,27 @@ img#small_logo {
   color: black;
 }
 
+.alert {
+  margin-bottom: 0;
+}
+.splash {
+  padding-top: -60px;
+  height: 100%;
+  font-family: 'Permanent Marker', cursive;
+}
+
 .splash_top {
   background-image: url('sky.jpg');
   background-size: cover;
-  height: 100%;
+  min-height: 400px;
+  height: 80%;
   padding: 50px;
+}
+
+.splash_text {
+  text-align: center;
+  background: white;
+  font-size: 2em;
 }
 
 .splash_bottom {
@@ -86,21 +102,17 @@ img#small_logo {
   height: 100%;
 }
 
-.splash_text {
-  text-align: left;
-  background: white;
-  font-size: 2em;
+.splash_bottom_info {
+  height: 300px;
+  background-color: red;
+  background-opacity: 0.4;
 }
 
 .tagline {
-  float: right;
-  font-family: 'Permanent Marker', cursive;
-  margin-right: 100px;
-  margin-top: 100px;
   color: white;
 }
 
 .tagline > h2 {
-  font-size: 4em;
+  font-size: 3em;
 }
 

@@ -5,8 +5,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 body {
   padding-top: 60px;
+}
+
+#dashboard{
+  background: linear-gradient(to left, #0099F7 , white );
 }
 
 #outing-index {
@@ -53,4 +58,9 @@ body {
 
 p.login-or-separator {
   margin-top: 10px;
+}
+
+#senate {
+  height: 100%;
+  width: 100%;
 }

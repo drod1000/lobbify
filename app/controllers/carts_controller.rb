@@ -3,7 +3,6 @@ class CartsController < ApplicationController
   def index
     @cart = Cart.new(session[:cart])
     @contents = @cart.contents_detailed
-    # @cart_total = cart.total_currency
   end
 
   def create
@@ -35,7 +34,7 @@ class CartsController < ApplicationController
   def destroy
     outing = Outing.find(params[:id])
     session[:cart].delete(outing.id.to_s)
-    link = "#{view_context.link_to(outing.title, carts_path(outing_id: outing.id), method: :POST)}"
+    link = "#{view_context.link_to(outing.title, outing_path(outing_id: outing.id))}"
     flash[:success] = "Successfully removed #{link} from your cart."
     redirect_to cart_path
   end

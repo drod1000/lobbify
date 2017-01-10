@@ -9,6 +9,10 @@ body {
   padding-top: 60px;
 }
 
+body, html {
+  height: 100%;
+}
+
 #outing-index {
   border: 2px solid black;
   border-radius: 10%;
@@ -27,6 +31,11 @@ body {
 #picture{
  height: 50px;
  width: 75px;
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid black;
 }
 
 .navbar-brand {
@@ -54,3 +63,44 @@ body {
 p.login-or-separator {
   margin-top: 10px;
 }
+
+img#small_logo {
+  padding: 5px;
+  height: 100%;
+}
+
+.label {
+  color: black;
+}
+
+.splash_top {
+  background-image: url('sky.jpg');
+  background-size: cover;
+  height: 100%;
+  padding: 50px;
+}
+
+.splash_bottom {
+  background-image: url('flag.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.splash_text {
+  text-align: left;
+  background: white;
+  font-size: 2em;
+}
+
+.tagline {
+  float: right;
+  font-family: 'Permanent Marker', cursive;
+  margin-right: 100px;
+  margin-top: 100px;
+  color: white;
+}
+
+.tagline > h2 {
+  font-size: 4em;
+}
+

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'outings#index'
+  root :to => 'welcome#index'
   resources 'politicians', only: [:index]
   resources :outings, only: [:index, :show]
   resources :users, only: [:new, :create, :edit, :update]

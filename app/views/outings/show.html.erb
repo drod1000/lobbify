@@ -1,15 +1,36 @@
-<div class="container politician_outing">
-  <img src="<%= @politician.image %>">
-  <h1><%= @politician.name %></h1>
+<body id="user-show">
   <div class="container">
-  Outing: <%= @outing.title %>
-  <br>
-  Description: <%= @outing.description %>
-  <br>
-  <% if @outing.retired? %>
-    <%= "Outing Retired" %>
-  <% else %>
-    <%= link_to "Add to Cart", carts_path(outing_id: @outing), method: :POST, class: "btn btn-success btn-sm" %>
-  <% end %>
+    <div class='col-md-4 img-div'>
+      <img class='pol-pic' id='pol-img' src="<%= @politician.image %>">
+    </div>
+
+    <div class='col-md-4 info'>
+      <h1><%= @outing.title %></h1>
+      <p>
+        <strong>with</strong> <%= link_to @politician.name, categories_path(@politician.name) %>
+      </p>
+
+      <br>
+      <p>
+        <strong>Description:</strong> <%= @outing.description %>
+      </p>
+      <br>
+      <p>
+        <strong>Cost:</strong> <%= @outing.adjusted_cost_currency %>
+      </p>
+      <br>
+    </div>
+
+    <div class='col-md-4 pads img-div'>
+      <img class='pol-pic' id='out-img' src="<%= @outing.image_url %>">
+    </div>
+    <% if @outing.retired? %>
+      <%= "Outing Retired" %>
+    <% else %>
+      <%= link_to "Add to Cart", carts_path(outing_id: @outing), method: :POST, class: "btn btn-danger btn-lg col-md-12" %>
+    <% end %>
   </div>
-</div>
+    <div class='container col-md-4 col-md-offset-4'>
+      <img id="senate-show" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Seal_of_the_United_States_Senate.svg">
+    </div>
+</body>

@@ -99,17 +99,33 @@ Politician.create(name: "Jeanne Shaheen", party: "D", multiplier: 4, image: "htt
 Politician.create(name: "Catherine Cortez Masto", party: "D", multiplier: 6, image: "http://vote-usa.org/Image.aspx?Id=NVCortezmastoCatherine&Col=Headshot100&Def=Headshot100", state: "Nevada")
 Politician.create(name: "Dean Heller", party: "R", multiplier: 6, image: "http://vote-usa.org/Image.aspx?Id=NVHellerDean&Col=Headshot100&Def=Headshot100", state: "Nevada")
 
+outings = [{title: "Golf", description: "Hitting balls with clubs", base_cost: 1300, image_url: "https://s3.amazonaws.com/images.charitybuzz.com/images/70066/original.png?1384591846"},
+
+{title: "Coffee", description: "Drinking water with beans", base_cost: 100, image_url: "http://media.nj.com/entertainment_impact_dining/photo/coffee-stock-photo-0e8b300f42157b6f.jpg"},
+
+{title: "Dinner", description: "Eating delicious food and conversating", base_cost: 2500, image_url: "http://crookedcreekguides.com/wp-content/uploads/2016/01/dinner-03.jpg"},
+
+{title: "Couples Massage", description: "Getting rubbed down by sexy masseuses", base_cost: 3000, image_url: "http://www.hobokenwellnessspa.com/wp-content/uploads/2016/02/MASSAGE-couple.jpg"},
+
+{title: "Wine Tasting", description: "Drinking old grape juice", base_cost: 2500, image_url: "http://boardinghousechicago.com/dine/wp-content/uploads/2014/12/wine-tasting.jpg"},
+
+{title: "Horseback Riding", description: "Establishing dominance over inferior species", base_cost: 2001, image_url: "http://flatheadlakelodge.com/wp-content/uploads/2014/05/Horseback_Couple_3840x1600-1440x600.jpg"},
+
+{title: "Shooting Skeet", description: "It's better than shooting people", base_cost: 1000, image_url: "https://img.washingtonpost.com/wp-apps/imrs.php?src=http://farm9.staticflickr.com/8331/8436110735_5ec05750a2_z.jpg&w=480"},
+
+{title: "Squash", description: "Hitting balls with racquets in short shorts", base_cost: 1750, image_url: "http://www.expertrain.com/SiteAssets/Images/Should%20you%20be%20playing%20the%20healthiest%20sport/bigstock-Squash-Racket-And-Balls-14153441.jpg"},
+
+{title: "Gambling", description: "What happens in Vegas, stays in Vegas", base_cost: 10000, image_url: "http://media.coindesk.com/uploads/2014/09/rsz_shutterstock_145623826.jpg"},
+
+{title: "Smoking", description: "Mmmmm, indubitably", base_cost: 3250, image_url: "http://www.cigarblog.cigarconexion.in/wp-content/uploads/2014/11/The-10-Coolest-Celebrity-Smoking-Cigar-in-Film-and-TV1.jpg"}]
+
+array = [0,1,2,3,4,5,6,7,8,9]
+
 Politician.all.each do |politician|
-  politician.outings.create(title: "Golf", description: "Hitting balls with clubs", base_cost: 1300, image_url: "https://s3.amazonaws.com/images.charitybuzz.com/images/70066/original.png?1384591846")
-  politician.outings.create(title: "Coffee", description: "Drinking water with beans", base_cost: 100, image_url: "http://media.nj.com/entertainment_impact_dining/photo/coffee-stock-photo-0e8b300f42157b6f.jpg")
-  politician.outings.create(title: "Dinner", description: "Eating delicious food and conversating", base_cost: 2500, image_url: "http://crookedcreekguides.com/wp-content/uploads/2016/01/dinner-03.jpg")
-  politician.outings.create(title: "Couples Massage", description: "Getting rubbed down by sexy masseuses", base_cost: 3000, image_url: "http://www.hobokenwellnessspa.com/wp-content/uploads/2016/02/MASSAGE-couple.jpg")
-  politician.outings.create(title: "Wine Tasting", description: "Drinking old grape juice", base_cost: 2500, image_url: "http://boardinghousechicago.com/dine/wp-content/uploads/2014/12/wine-tasting.jpg")
-  politician.outings.create(title: "Horseback Riding", description: "Establishing dominance over inferior species", base_cost: 2001, image_url: "http://flatheadlakelodge.com/wp-content/uploads/2014/05/Horseback_Couple_3840x1600-1440x600.jpg")
-  politician.outings.create(title: "Shooting Skeet", description: "It's better than shooting people", base_cost: 1000, image_url: "https://img.washingtonpost.com/wp-apps/imrs.php?src=http://farm9.staticflickr.com/8331/8436110735_5ec05750a2_z.jpg&w=480")
-  politician.outings.create(title: "Squash", description: "Hitting balls with racquets in short shorts", base_cost: 1750, image_url: "http://www.expertrain.com/SiteAssets/Images/Should%20you%20be%20playing%20the%20healthiest%20sport/bigstock-Squash-Racket-And-Balls-14153441.jpg")
-  politician.outings.create(title: "Gambling", description: "What happens in Vegas, stays in Vegas", base_cost: 10000, image_url: "http://media.coindesk.com/uploads/2014/09/rsz_shutterstock_145623826.jpg")
-  politician.outings.create(title: "Smoking", description: "Mmmmm, indubitably", base_cost: 3250, image_url: "http://www.cigarblog.cigarconexion.in/wp-content/uploads/2014/11/The-10-Coolest-Celebrity-Smoking-Cigar-in-Film-and-TV1.jpg")
+  randomize = array.shuffle.take(6)
+  randomize.each do |current|
+    politician.outings.create(outings[current])
+  end
 end
 
 User.create(name: "Drew", email: "d@email", password: "1password", address: "Blake Street", role: 1)

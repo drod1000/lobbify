@@ -6,24 +6,24 @@ RSpec.describe "Method path_creator" do
       include ApplicationHelper
     end
     @tester = PathCreatorTest.new
-    @expected_output = "Some_Name"
+    # @expected_output = "Some_Name"
   end
 
   describe "it replaces speces" do
     scenario "input is all Capitalized" do
       test_name = "Some Name"
 
-      expect(@tester.path_creator(test_name)).to eq(@expected_output)
+      expect(@tester.path_creator(test_name)).to eq("Some_Name")
     end
     scenario "input is not capitalized" do
       test_name = "some name"
 
-      expect(@tester.path_creator(test_name)).to eq(@expected_output)
+      expect(@tester.path_creator(test_name)).to eq("some_name")
     end
     scenario "input is upper case and lower case mixed" do
       test_name = "sOMe naME"
 
-      expect(@tester.path_creator(test_name)).to eq(@expected_output)
+      expect(@tester.path_creator(test_name)).to eq("sOMe_naME")
     end
   end
 end

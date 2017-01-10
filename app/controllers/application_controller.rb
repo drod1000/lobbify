@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::AssetUrlHelper
   include ApplicationHelper
 
   def current_user

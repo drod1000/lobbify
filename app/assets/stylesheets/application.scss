@@ -64,3 +64,33 @@ p.login-or-separator {
   height: 100%;
   width: 100%;
 }
+.pol-pic {
+  width: 100%;
+  border-radius: 10%;
+  margin-bottom: 5px;
+}
+.pads {
+  padding-top: 3%;
+}
+.info {
+  text-align: center;
+  font-size: 20px;
+}
+#user-show {
+  background: linear-gradient(to right, #0099F7 , white );
+}
+#pol-img {
+  height: 200px;
+  width: 150px;
+  margin-left: 100px;
+  margin-top: 15%;
+}
+
+.img-div {
+  display: flex;
+  align-items: center;
+}
+
+#out-img {
+  max-height: 350px;
+}

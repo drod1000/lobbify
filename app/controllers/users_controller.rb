@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :set_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -26,11 +29,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
       flash[:success] = "Successfully updated #{@user.name}"
@@ -45,5 +46,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :address)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

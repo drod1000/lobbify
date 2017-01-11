@@ -1,12 +1,17 @@
-<div class='col-md-4' id='outing-index'>
-  <br>
-  <img id='outing-image' src='<%= outing.image_url %>'><br>
-  <p><%= link_to outing.title, outing_path(outing) %></p>
-  <p><strong><%= outing.adjusted_cost_currency %></strong></p>
-  <p>with <%= link_to outing.politician.name, "/#{path_creator(outing.politician.name)}" %></p><br>
-  <% if outing.retired? %>
-  <p> Outing Retired </p>
-  <% else %>
-  <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm' %></p>
-  <% end %>
+<div class='col-md-4 outing-tile' id='outing-index'>
+  <div class = 'col-md-6'>
+    <img id='outing-image' src='<%= outing.image_url %>'><br>
+  </div>
+  <div class = 'col-md-6'>
+    <h3 class = 'text-center'><%= link_to outing.title, outing_path(outing) %></h3>
+    <p><strong><%= outing.adjusted_cost_currency %></strong></p>
+    <p>with <%= link_to outing.politician.name, "/#{path_creator(outing.politician.name)}" %></p><br>
+  </div>
+  <div class = 'col-md-offset-2 col-md-8 outing-button'>
+    <% if outing.retired? %>
+    <p> Outing Retired </p>
+    <% else %>
+    <p><%= link_to "Add to Cart", carts_path(outing_id: outing.id),method: :POST, class:'btn btn-success btn-sm col-md-12' %></p>
+    <% end %>
+  </div>
 </div>

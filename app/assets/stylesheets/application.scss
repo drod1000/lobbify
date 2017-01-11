@@ -18,9 +18,21 @@ body, html {
   background: linear-gradient(to left, #0099F7 , white );
 }
 
+.outing-tile {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 1px;
+}
+
+.outing-button {
+  margin-bottom: 10px;
+}
+
 #outing-index {
-  border: 2px solid black;
-  border-radius: 10%;
+  border: 1px solid #EEEEEE;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 #outing-index p{
   text-align: center;

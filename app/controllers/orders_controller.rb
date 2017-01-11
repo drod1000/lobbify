@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
+
+  before_action :set_order, only: [:show, :cancel, :paid, :completed]
+
   def index
     @orders = current_user.orders
   end
 
   def show
-    @order = Order.find(params[:id])
     if current_user.nil? || !current_user.orders.include?(@order) && !current_user.admin?
       flash[:danger] = "You can only view your own orders. Please log in with the appropritate credentials."
       redirect_to root_path
@@ -27,19 +29,16 @@ class OrdersController < ApplicationController
   end
 
   def cancel
-    @order = Order.find(params[:id])
     @order.update(status: "cancelled")
     redirect_to admin_dashboard_path
   end
 
   def paid
-    @order = Order.find(params[:id])
     @order.update(status: "paid")
     redirect_to admin_dashboard_path
   end
 
   def completed
-    @order = Order.find(params[:id])
     @order.update(status: "completed")
     redirect_to admin_dashboard_path
   end
@@ -52,5 +51,9 @@ class OrdersController < ApplicationController
       new_order.order_outings << OrderOuting.create(outing_id: outing_id, quantity: outing_qty)
     end
     new_order.save
+  end
+
+  def set_order
+    @order = Order.find(params[:id])
   end
 end

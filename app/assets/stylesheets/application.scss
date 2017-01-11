@@ -104,14 +104,16 @@ img#large_logo {
 .splash {
   padding-top: -60px;
   height: 100%;
-  font-family: 'Permanent Marker', cursive;
+    h1 {
+      font-family: 'Permanent Marker', cursive;
+    }
 }
 
 .splash_top {
   background-image: url('sky.jpg');
   background-size: cover;
   min-height: 400px;
-  height: 80%;
+  height: 70%;
   padding: 50px;
 }
 

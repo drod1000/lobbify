@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Visitor" do
   scenario "cannot see other user's page or information" do
-    user = User.create(name: "Drew", email: "email@email", password: "password", role: 0)
+    user = User.create(name: "Bilbo", email: "email@email", password: "password", role: 0)
 
     visit dashboard_path
 

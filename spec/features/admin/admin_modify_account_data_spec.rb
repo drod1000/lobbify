@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Admin" do
   scenario "can modify own (admin) account data" do
-    admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
+    admin = User.create(name: "Bilbo", email: "email@email.com", password: "password", role: 1)
     page.set_rack_session(user_id: admin.id)
 
     visit dashboard_path
@@ -19,11 +19,11 @@ describe "Admin" do
 
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content("Chicken Salad")
-    expect(page).not_to have_content("Drew")
+    expect(page).not_to have_content("Bilbo")
   end
 
   scenario "fails to update with insufficient information" do
-    admin = User.create(name: "Drew", email: "email@email.com", password: "password", role: 1)
+    admin = User.create(name: "Bilbo", email: "email@email.com", password: "password", role: 1)
     page.set_rack_session(user_id: admin.id)
 
     visit dashboard_path
@@ -50,6 +50,6 @@ describe "Admin" do
 
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content("Chicken Salad")
-    expect(page).not_to have_content("Drew")
+    expect(page).not_to have_content("Bilbo")
   end
 end

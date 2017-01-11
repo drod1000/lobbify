@@ -1,9 +1,30 @@
 <div class='container'>
 
-  <div class='container'>
-    <%= paginate @outings %>
+  <div class='container ransack-search'>
+    <div class='col-md-6 form-inline'>
+      <%= search_form_for @search do |f| %>
+       <div class="form-group">
+         <%= f.label :title_cont, "Outing Title Contains:"%>
+         <%= f.text_field :title_cont, placeholder: "example: Golf" %>
+       </div>
+       <span class="actions">
+         <%= f.submit "Search for Outing", class: 'btn btn-info btn-sm' %>
+       </span><br />
+      <% end %>
+    </div>
+    <div class='col-md-6 form-inline'>
+      <%= search_form_for @q do |f| %>
+      <div class='form-group'>
+       <%= f.label :politician_name_cont, "Politician Name Contains:" %>
+       <%= f.text_field :politician_name_cont, placeholder: "example: Bernie" %>
+     </div>
+       <span>
+         <%= f.submit "Politician Search", class: 'btn btn-info btn-sm' %>
+       </span><br />
+      <% end %>
+    </div>
   </div>
-  
+
   <% @outings.each do |outing|%>
     <%= render partial: 'shared/outing', locals: {outing: outing} %>
   <% end %>

@@ -1,7 +1,10 @@
 class OutingsController < ApplicationController
 
   def index
-    @outings = Outing.all.page(params[:page])
+    @search = Outing.search(params[:q])
+    @outings = @search.result
+    @q = Outing.ransack(params[:q])
+    @outings = @q.result.includes(:politician)
     @cart = Cart.new(session[:cart])
   end
 

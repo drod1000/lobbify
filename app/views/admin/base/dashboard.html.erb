@@ -1,6 +1,11 @@
 <div class='container'>
   <h1> Admin Dashboard </h1>
   <div>
+    <div class="container">
+      <div class="col-md-2"><p>Name: <%= @user.name %></p></div>
+      <div class="col-md-2"><p>Email: <%= @user.email %></p></div>
+      <div class="col-md-2"><%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning btn-lg" %></div>
+    </div>
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist" id="admin-tabs">
@@ -31,7 +36,4 @@
     </div>
 
   </div>
-  <p>Name: <%= @user.name %></p>
-  <p>Email: <%= @user.email %></p>
-  <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning btn-lg" %>
 </div>

@@ -8,19 +8,19 @@ class CartsController < ApplicationController
 
   def create
     @cart.add_outing(@outing.id)
-    session[:cart] = @cart.contents
+    save_cart(@cart)
     redirect_to outings_path
   end
 
   def increment
     @cart.add_outing(@outing.id)
-    session[:cart] = @cart.contents
+    save_cart(@cart)
     redirect_to cart_path
   end
 
   def decrement
     @cart.sub_outing(@outing.id)
-    session[:cart] = @cart.contents
+    save_cart(@cart)
     redirect_to cart_path
   end
 
@@ -37,5 +37,9 @@ class CartsController < ApplicationController
   def set_cart
     @outing = Outing.find(params[:outing_id])
     @cart = Cart.new(session[:cart])
+  end
+
+  def save_cart(cart)
+    session[:cart] = cart.contents
   end
 end

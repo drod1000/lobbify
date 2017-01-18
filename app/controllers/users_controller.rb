@@ -29,6 +29,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if session[:user_id] != params[:id].to_i
+      render file: "/public/403"
+    end
   end
 
   def update

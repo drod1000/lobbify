@@ -1,0 +1,28 @@
+      <table class = "table">
+        <tr>
+          <th>Order ID</th>
+          <th>Current Status</th>
+          <th colspan="3" class = "text-center">Action</th>
+        </tr>
+        <% list.each do |order|%>
+          <tr>
+            <td><%= link_to order.id, order_path(order) %></td>
+            <td><%= order.status %></td>
+            <td>
+              <% if order.ordered? || order.paid? %>
+                <%= link_to "Cancel", cancel_path(id: order.id), method: "POST", class: "btn btn-default" %>
+              <% end %>
+              </td>
+            <td>
+              <% if order.ordered? %>
+                <%= link_to "Mark as Paid", paid_path(id: order.id), method: "POST",  class: "btn btn-default" %>
+              <% end %>
+            </td>
+            <td>
+              <% if order.paid? %>
+                <%= link_to "Mark as Completed", completed_path(id: order.id), method: "POST",  class: "btn btn-default" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>

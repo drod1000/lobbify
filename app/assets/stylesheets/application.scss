@@ -1,0 +1,203 @@
+/*
+ *= require rails_bootstrap_forms
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+  padding-top: 50px;
+  font-family: 'Quattrocento', serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+#dashboard{
+  background: linear-gradient(to left, #0099F7 , white );
+}
+
+.outing-tile {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 1px;
+}
+
+.outing-button {
+  margin-bottom: 10px;
+}
+
+#outing-index {
+  border: 1px solid #EEEEEE;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#outing-index p{
+  text-align: center;
+}
+#outing-image{
+  height: 150px;
+  width: 175px;
+  border: 1px solid black;
+  border-radius: 10%;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#picture{
+ height: 50px;
+ width: 75px;
+}
+
+.navbar {
+  background: white;
+  border-bottom: 1px solid black;
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.navbar>li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.row{
+  margin-bottom: 15px;
+}
+.politician_outing {
+  text-align: center;
+}
+
+p.login-or-separator {
+  margin-top: 10px;
+}
+
+img#small_logo {
+  padding: 5px;
+  height: 100%;
+}
+
+img#large_logo {
+  padding: 5px;
+  height: 100%;
+}
+
+.label {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+.splash {
+  padding-top: -60px;
+  height: 100%;
+    h1 {
+      font-family: 'Permanent Marker', cursive;
+    }
+}
+
+.splash_top {
+  background-image: url('sky.jpg');
+  background-size: cover;
+  min-height: 400px;
+  height: 70%;
+  padding: 50px;
+}
+
+.splash_text {
+  text-align: center;
+  background: white;
+  font-size: 2em;
+}
+
+.splash_bottom {
+  background-image: url('flag.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.splash_bottom_info {
+  height: 300px;
+  background-color: red;
+  background-opacity: 0.4;
+}
+
+.tagline {
+  color: white;
+}
+
+.tagline > h2 {
+  font-size: 3em;
+}
+
+#senate {
+  height: 100%;
+  width: 100%;
+}
+.pol-pic {
+  width: 100%;
+  border-radius: 10%;
+  margin-bottom: 5px;
+}
+.pads {
+  padding-top: 3%;
+}
+.info {
+  text-align: center;
+  font-size: 20px;
+}
+#user-show {
+  background: linear-gradient(to right, #c3ccd2 , white );
+}
+#pol-img {
+  height: 200px;
+  width: 150px;
+  margin-left: 100px;
+  margin-top: 15%;
+}
+
+.img-div {
+  display: flex;
+  align-items: center;
+}
+
+#out-img {
+  max-height: 350px;
+}
+
+#senate-show {
+  height: 500px;
+  width: 100%;
+  margin: auto 0;
+  margin-top: 10px;
+}
+.ransack-search {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}

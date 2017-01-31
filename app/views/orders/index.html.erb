@@ -1,0 +1,14 @@
+<div class='container'>
+  <h1>User's order(s)</h1>
+
+  <table class = "table">
+    <tr>
+      <th>Order ID</th>
+    </tr>
+    <% @orders.each do |order|%>
+      <tr>
+        <td><%= link_to order.id, order_path(order) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

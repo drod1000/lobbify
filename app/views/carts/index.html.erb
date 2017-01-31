@@ -1,0 +1,45 @@
+<div class='container'>
+  <div class = "col-md-4">
+    <h1>Cart
+      <% if !@cart.empty? && current_user %>
+        <%= link_to "Checkout", checkout_path, method: :POST, class: "btn btn-primary" %>
+      <% elsif !@cart.empty? %>
+        <%= link_to "Login or Create Account to Checkout", checkout_path, method: :POST, class: "btn btn-primary" %>
+      <% end %>
+    </h1>
+  </div>
+  <div class = "col-md-8 text-right">
+    <h1>Total Price: <%= @cart.total_currency %></h1>
+  </div>
+
+  <table class = "table">
+    <tr>
+      <th>Outing Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Sub Total</th>
+      <th>Action</th>
+    </tr>
+    <% @cart.contents_detailed.each do |content, content_qty|%>
+      <tr>
+        <td><%= content.title %></td>
+        <td><%= content.description %></td>
+        <td><img src="<%= content.image_url %>" class="img-responsive" id="outing-photo"></td>
+        <td><%= content.adjusted_cost_currency %></td>
+        <td id='quantity'><%= link_to "+", increment_path(outing_id: content.id),method: :POST, class:'btn btn-success btn-xs', id: 'add' %>
+          <%= content_qty %>
+          <% if content_qty >= 2 %>
+            <%= link_to "-", decrement_path(outing_id: content.id), method: :POST, class:'btn btn-warning btn-xs'%></td></td>
+          <% end %>
+          <td>
+            <%= @cart.sub_total_currency(content, content_qty) %>
+          </td>
+        <td><%= link_to "Remove", "/carts/#{content.id}", method: :delete, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+    <tr>
+    </tr>
+  </table>
+</div>

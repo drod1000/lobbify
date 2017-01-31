@@ -1,0 +1,39 @@
+<div class='container'>
+  <h1> Admin Dashboard </h1>
+  <div>
+    <div class="container">
+      <div class="col-md-2"><p>Name: <%= @user.name %></p></div>
+      <div class="col-md-2"><p>Email: <%= @user.email %></p></div>
+      <div class="col-md-2"><%= link_to "Edit User", edit_user_path(@user), class: "btn btn-warning btn-lg" %></div>
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist" id="admin-tabs">
+      <li role="presentation" class="active"><a href="#all" aria-controls="all" role="tab" data-toggle="tab">All <span class="badge"><%= @orders.count %></a></li>
+      <li role="presentation"><a href="#ordered" aria-controls="ordered" role="tab" data-toggle="tab">Ordered <span class="badge"><%= @orders.ordered.count %></a></li>
+      <li role="presentation"><a href="#paid" aria-controls="paid" role="tab" data-toggle="tab">Paid <span class="badge"><%= @orders.paid.count %></a></li>
+      <li role="presentation"><a href="#cancelled" aria-controls="cancelled" role="tab" data-toggle="tab">Cancelled <span class="badge"><%= @orders.cancelled.count %></a></li>
+      <li role="presentation"><a href="#completed" aria-controls="completed" role="tab" data-toggle="tab">Completed <span class="badge"><%= @orders.completed.count %></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="all">
+          <%= render partial: "admin-orders", locals: {list: @orders} %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="ordered">
+          <%= render partial: "admin-orders", locals: {list: @orders.ordered} %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="paid">
+          <%= render partial: "admin-orders", locals: {list: @orders.paid} %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="cancelled">
+          <%= render partial: "admin-orders", locals: {list: @orders.cancelled} %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="completed">
+          <%= render partial: "admin-orders", locals: {list: @orders.completed} %>
+      </div>
+    </div>
+
+  </div>
+</div>
